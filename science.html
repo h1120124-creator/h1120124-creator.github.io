@@ -6,19 +6,107 @@
     <title>自然探究與實作 - 專案詳情</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --bg-color: #080a10; --text-main: #e0e6ed; --cyan-glow: #00f3ff; --purple-glow: #b026ff; }
-        body { font-family: 'Noto Sans TC', sans-serif; background-color: var(--bg-color); color: var(--text-main); margin: 0; padding: 0; background-image: radial-gradient(circle at 50% 50%, #111827 0%, #000000 100%); display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
-        nav { width: 100%; background: rgba(8, 10, 16, 0.9); border-bottom: 1px solid var(--cyan-glow); padding: 15px 50px; display: flex; justify-content: space-between; align-items: center; box-sizing: border-box; }
-        .nav-logo { font-family: 'Orbitron', sans-serif; color: var(--cyan-glow); font-size: 1.5rem; text-shadow: 0 0 10px var(--cyan-glow); }
-        .btn-back { color: #000; background: var(--cyan-glow); text-decoration: none; padding: 8px 15px; border-radius: 4px; font-weight: bold; transition: 0.3s; box-shadow: 0 0 10px var(--cyan-glow); }
-        .btn-back:hover { background: #fff; box-shadow: 0 0 15px #fff; }
-        .content-container { width: 80%; max-width: 800px; margin-top: 100px; text-align: center; }
+        :root { 
+            --bg-color: #f8fafc; 
+            --text-main: #1e293b; 
+            --cyan-glow: #0ea5e9; 
+        }
+        
+        body { 
+            font-family: 'Noto Sans TC', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            padding: 0; 
+            background-image: radial-gradient(circle at 50% 50%, #f0f9ff 0%, #f8fafc 100%); 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            min-height: 100vh; 
+        }
+        
+        nav { 
+            width: 100%; 
+            background: rgba(255, 255, 255, 0.85); 
+            border-bottom: 1px solid #e2e8f0; 
+            padding: 15px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-sizing: border-box; 
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+        }
+        
+        .nav-logo { 
+            font-family: 'Orbitron', sans-serif; 
+            color: var(--cyan-glow); 
+            font-size: 1.5rem; 
+            font-weight: bold;
+        }
+        
+        .btn-back { 
+            color: #fff; 
+            background: var(--cyan-glow); 
+            text-decoration: none; 
+            padding: 8px 20px; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            transition: 0.3s; 
+            box-shadow: 0 4px 10px rgba(14, 165, 233, 0.2); 
+        }
+        
+        .btn-back:hover { 
+            background: #0284c7; 
+            box-shadow: 0 6px 15px rgba(14, 165, 233, 0.3); 
+        }
+        
+        .content-container { 
+            width: 85%; 
+            max-width: 800px; 
+            margin-top: 150px; 
+            text-align: center; 
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 15px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
         .project-header { margin-bottom: 50px; }
-        .project-header h1 { color: var(--cyan-glow); font-size: 2.5rem; text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); margin-bottom: 10px; }
-        .project-header p { color: #aaa; font-size: 1.1rem; }
-        /* 超大按鈕設計 */
-        .big-action-btn { display: inline-block; padding: 20px 40px; font-size: 1.5rem; color: var(--cyan-glow); text-decoration: none; background: rgba(0, 243, 255, 0.05); border: 2px solid var(--cyan-glow); border-radius: 10px; transition: all 0.3s ease; position: relative; overflow: hidden; font-weight: bold; }
-        .big-action-btn:hover { background: var(--cyan-glow); color: #000; box-shadow: 0 0 30px var(--cyan-glow); transform: translateY(-5px); }
+        
+        .project-header h1 { 
+            color: var(--text-main); 
+            font-size: 2.2rem; 
+            margin-bottom: 15px; 
+            font-weight: 700;
+        }
+        
+        .project-header p { 
+            color: #64748b; 
+            font-size: 1.1rem; 
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .big-action-btn { 
+            display: inline-block; 
+            padding: 25px 45px; 
+            font-size: 1.3rem; 
+            color: #fff; 
+            text-decoration: none; 
+            background: var(--cyan-glow); 
+            border-radius: 12px; 
+            transition: all 0.3s ease; 
+            font-weight: bold; 
+            box-shadow: 0 8px 20px rgba(14, 165, 233, 0.3);
+        }
+        
+        .big-action-btn:hover { 
+            background: #0284c7; 
+            transform: translateY(-5px); 
+            box-shadow: 0 12px 25px rgba(14, 165, 233, 0.4); 
+        }
     </style>
 </head>
 <body>
@@ -30,11 +118,11 @@
     <div class="content-container">
         <div class="project-header">
             <h1>自然科學探究與實作：酵母菌發酵實驗</h1>
-            <p>File Target: science_report.pdf | Status: Ready for Extraction</p>
+            <p>FILE: science_report.pdf | STATUS: VERIFIED</p>
         </div>
         
         <a href="science_report.pdf" target="_blank" class="big-action-btn">
-            [ INITIALIZE_FILE ]<br>📄 點擊開啟完整實驗報告
+            📄 點擊開啟完整實驗報告
         </a>
     </div>
 </body>
