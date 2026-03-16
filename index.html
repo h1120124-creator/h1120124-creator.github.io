@@ -7,12 +7,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* === CSS 樣式設定 === */
+        /* === 明亮科技風樣式設定 === */
         :root {
-            --bg-color: #080a10;
-            --text-main: #e0e6ed;
-            --cyan-glow: #00f3ff;
-            --purple-glow: #b026ff;
+            --bg-color: #f8fafc;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --cyan-glow: #0ea5e9; /* 深一點的科技藍，在亮色背景較清楚 */
+            --accent-purple: #8b5cf6;
+            --card-bg: #ffffff;
         }
 
         * {
@@ -27,32 +29,33 @@
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            background-image: radial-gradient(circle at 50% 50%, #111827 0%, #000000 100%);
+            /* 淺色科技感漸層 */
+            background-image: radial-gradient(circle at 50% 50%, #f0f9ff 0%, #f8fafc 100%);
         }
 
         h1, h2, h3, .nav-logo {
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(8, 10, 16, 0.9);
-            border-bottom: 1px solid var(--cyan-glow);
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid #e2e8f0;
             padding: 15px 50px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
         }
 
         .nav-logo {
             color: var(--cyan-glow);
             font-size: 1.5rem;
-            text-shadow: 0 0 10px var(--cyan-glow);
+            font-weight: bold;
         }
 
         .nav-links {
@@ -61,19 +64,19 @@
         }
 
         .nav-links a {
-            color: var(--text-main);
+            color: var(--text-sub);
             text-decoration: none;
-            font-size: 1rem;
+            font-size: 0.95rem;
+            font-weight: 500;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
             color: var(--cyan-glow);
-            text-shadow: 0 0 8px var(--cyan-glow);
         }
 
         section {
-            padding: 100px 10vw 60px;
+            padding: 120px 10vw 60px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -81,12 +84,12 @@
         }
 
         .section-title {
-            font-size: 2.5rem;
-            color: var(--cyan-glow);
+            font-size: 2.2rem;
+            color: var(--text-main);
             margin-bottom: 40px;
-            text-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
-            border-left: 5px solid var(--purple-glow);
-            padding-left: 15px;
+            border-left: 6px solid var(--cyan-glow);
+            padding-left: 20px;
+            position: relative;
         }
 
         #home {
@@ -95,124 +98,107 @@
         }
 
         .terminal-box {
-            border: 1px solid var(--cyan-glow);
-            padding: 40px;
-            background: rgba(0, 243, 255, 0.05);
-            box-shadow: 0 0 20px rgba(0, 243, 255, 0.2) inset;
-            border-radius: 10px;
-            width: 80%;
+            border: 1px solid #e2e8f0;
+            padding: 50px;
+            background: var(--card-bg);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 15px;
+            width: 85%;
             max-width: 800px;
         }
 
         #typing-text {
             font-family: 'Orbitron', monospace;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: var(--cyan-glow);
+            display: block;
+            margin-bottom: 10px;
         }
 
         .cursor {
             display: inline-block;
-            width: 10px;
-            height: 1.5rem;
+            width: 8px;
+            height: 1.2rem;
             background-color: var(--cyan-glow);
             animation: blink 1s step-end infinite;
-            vertical-align: bottom;
         }
 
         @keyframes blink { 50% { opacity: 0; } }
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
         }
 
         .tech-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid #333;
-            padding: 25px;
-            border-radius: 8px;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid #e2e8f0;
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
-        }
-
-        .tech-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--cyan-glow));
-            transition: 0.5s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
 
         .tech-card:hover {
             border-color: var(--cyan-glow);
-            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.1);
             transform: translateY(-5px);
         }
 
-        .tech-card:hover::before {
-            left: 100%;
-        }
-
         .tech-card h3 {
-            color: var(--purple-glow);
+            color: var(--text-main);
             margin-bottom: 15px;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
         }
 
         .tech-card p {
-            color: #aaa;
+            color: var(--text-sub);
             font-size: 0.95rem;
-            flex-grow: 1; /* 讓文字區塊自動撐開，把按鈕推到最底 */
+            flex-grow: 1;
         }
 
         .tags {
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin: 20px 0;
         }
 
         .tag {
             display: inline-block;
-            padding: 5px 10px;
-            font-size: 0.8rem;
-            border: 1px solid var(--cyan-glow);
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            background: #f0f9ff;
             color: var(--cyan-glow);
-            border-radius: 4px;
-            margin-right: 5px;
+            border-radius: 20px;
+            margin-right: 6px;
+            font-weight: bold;
+            border: 1px solid #bae6fd;
         }
 
-        /* === 新增：科技感檔案連結按鈕 === */
         .btn-link {
             display: inline-block;
-            padding: 10px 15px;
-            background: rgba(0, 243, 255, 0.1);
-            color: var(--cyan-glow);
+            padding: 12px 20px;
+            background: var(--cyan-glow);
+            color: #fff;
             text-decoration: none;
-            border: 1px solid var(--cyan-glow);
-            border-radius: 5px;
+            border-radius: 8px;
             font-size: 0.9rem;
             text-align: center;
             transition: 0.3s;
-            font-family: 'Noto Sans TC', sans-serif;
             font-weight: bold;
         }
 
         .btn-link:hover {
-            background: var(--cyan-glow);
-            color: #000;
-            box-shadow: 0 0 10px var(--cyan-glow);
+            background: #0284c7;
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
         }
 
         .hidden {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
         }
 
         .show {
@@ -222,17 +208,18 @@
 
         footer {
             text-align: center;
-            padding: 20px;
-            border-top: 1px solid #333;
-            font-size: 0.8rem;
-            color: #666;
+            padding: 40px;
+            background: #fff;
+            border-top: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+            color: var(--text-sub);
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="nav-logo">USER_PROFILE_SYS</div>
+        <div class="nav-logo">H1120124_SYS</div>
         <div class="nav-links">
             <a href="#learning">學習內容</a>
             <a href="#portfolio">專題作品</a>
@@ -245,8 +232,8 @@
     <section id="home">
         <div class="terminal-box hidden">
             <span id="typing-text"></span><span class="cursor"></span>
-            <h1 style="margin-top: 20px; font-size: 2.5rem; color: #fff;">高中學習歷程資料庫</h1>
-            <p style="margin-top: 15px; color: #aaa;">Data Synchronized. Welcome to my portfolio.</p>
+            <h1 style="margin-top: 10px; color: var(--text-main);">高中學習歷程資料庫</h1>
+            <p style="margin-top: 15px; color: var(--text-sub); font-weight: 500;">檔案同步完成。歡迎來到我的個人數位空間。</p>
         </div>
     </section>
 
@@ -255,9 +242,9 @@
         <div class="grid-container">
             <div class="tech-card hidden">
                 <h3>自然科學探究與實作：酵母菌發酵實驗</h3>
-                <p>探討發酵時間（10至40分鐘）對酵母菌產物的影響。實驗將蔗糖濃度控制於 6.72%、溫度 30~35 度，觀察到二氧化碳生成量與發酵時間呈正相關。過程中克服了器材操作的失誤，獲得寶貴的實作經驗。</p>
+                <p>探討發酵時間對產物的影響。實驗將蔗糖濃度控制於 6.72%、溫度 30~35 度，觀察到二氧化碳生成量與發酵時間呈正相關。</p>
                 <div class="tags">
-                    <span class="tag">生物實驗</span> <span class="tag">變因控制</span> <span class="tag">數據記錄</span>
+                    <span class="tag">#生物實驗</span> <span class="tag">#變因控制</span> <span class="tag">#數據記錄</span>
                 </div>
                 <a href="science.html" class="btn-link">📄 進入專案觀看報告</a>
             </div>
@@ -266,7 +253,7 @@
                 <h3>多元選修：程式設計入門</h3>
                 <p>學習 Python 基礎語法，並利用爬蟲技術收集中央氣象署資料，製作簡易天氣預報 Line Bot。</p>
                 <div class="tags">
-                    <span class="tag">Python</span> <span class="tag">API</span>
+                    <span class="tag">#Python</span> <span class="tag">#API</span>
                 </div>
             </div>
         </div>
@@ -279,71 +266,25 @@
                 <h3>智慧盆栽監測系統</h3>
                 <p>結合 Arduino 與土壤濕度感測器，當水分不足時自動亮紅燈並發送手機通知，解決忘記澆水的問題。</p>
                 <div class="tags">
-                    <span class="tag">Arduino</span> <span class="tag">IoT</span>
+                    <span class="tag">#Arduino</span> <span class="tag">#IoT</span>
                 </div>
             </div>
             <div class="tech-card hidden">
                 <h3>個人科技風網頁 (本作)</h3>
                 <p>從零開始學習 HTML, CSS 與 JavaScript，不使用套版，獨立完成具備 RWD 與動態效果的個人履歷網站。</p>
                 <div class="tags">
-                    <span class="tag">Web Dev</span> <span class="tag">UI/UX</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="competitions">
-        <h2 class="section-title">03. 競賽經歷 / Competitions</h2>
-        <div class="grid-container">
-            <div class="tech-card hidden">
-                <h3>全國高中職程式設計競賽 (NPSC)</h3>
-                <p>擔任團隊主要解題手，熟悉演算法與資料結構，於全國初賽獲得佳作成績。</p>
-                <div class="tags">
-                    <span class="tag">C++</span> <span class="tag">Algorithm</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="clubs">
-        <h2 class="section-title">04. 社團活動 / Club Activities</h2>
-        <div class="grid-container">
-            <div class="tech-card hidden">
-                <h3>資訊研究社 - 教學幹部</h3>
-                <p>負責規劃整學期的 Python 基礎課程，編寫講義並於社課上台授課，訓練表達能力與邏輯思維。</p>
-                <div class="tags">
-                    <span class="tag">領導力</span> <span class="tag">公眾表達</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="self-learning">
-        <h2 class="section-title">05. 自主學習 / Self-Learning</h2>
-        <div class="grid-container">
-            <div class="tech-card hidden">
-                <h3>AI 繪圖與詠唱技巧研究</h3>
-                <p>利用 18 週的時間，學習 Midjourney 與 Stable Diffusion 的操作，並整理出一本「AI 提示詞(Prompt) 實用手冊」。</p>
-                <div class="tags">
-                    <span class="tag">AI Tools</span> <span class="tag">創新應用</span>
-                </div>
-            </div>
-            <div class="tech-card hidden">
-                <h3>多益英語檢定準備</h3>
-                <p>制定每週背誦 100 個單字與完成 1 回模擬考的計畫，最終取得 TOEIC 850 分的成績。</p>
-                <div class="tags">
-                    <span class="tag">時間管理</span> <span class="tag">語言能力</span>
+                    <span class="tag">#Web Dev</span> <span class="tag">#UI/UX</span>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>SYSTEM LOG OUT. © 2026 Crafted by Your Name. All rights reserved.</p>
+        <p>SYSTEM ONLINE. © 2026 Crafted by Your Name. All rights reserved.</p>
     </footer>
 
     <script>
-        const textToType = "> Initializing system... Loading student data...";
+        const textToType = "> SYSTEM_READY: Fetching data...";
         const typingElement = document.getElementById("typing-text");
         let charIndex = 0;
 
@@ -351,7 +292,7 @@
             if (charIndex < textToType.length) {
                 typingElement.innerHTML += textToType.charAt(charIndex);
                 charIndex++;
-                setTimeout(typeWriter, 50);
+                setTimeout(typeWriter, 40);
             }
         }
         
@@ -360,16 +301,13 @@
         };
 
         const hiddenElements = document.querySelectorAll('.hidden');
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
                 }
             });
-        }, {
-            threshold: 0.1 
-        });
+        }, { threshold: 0.1 });
 
         hiddenElements.forEach((el) => observer.observe(el));
     </script>
