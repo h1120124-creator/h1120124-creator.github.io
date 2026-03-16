@@ -279,37 +279,41 @@
         </div>
     </section>
 
-    <footer>
-        <p>SYSTEM ONLINE. © 2026 Crafted by Your Name. All rights reserved.</p>
-    </footer>
+    <!-- 競賽經歷區塊 -->
+    <section id="competitions">
+        <h2 class="section-title">03. 競賽經歷 / Competitions</h2>
+        <div class="grid-container">
+            <div class="tech-card hidden">
+                <h3>校內資訊學科能力競賽</h3>
+                <p>參與校內程式設計競賽，使用 C++ 解決基礎演算法與資料結構問題，獲得佳作肯定，大幅提升了邏輯思維與解題速度。</p>
+                <div class="tags">
+                    <span class="tag">#C++</span> <span class="tag">#演算法</span> <span class="tag">#邏輯解題</span>
+                </div>
+            </div>
+            <div class="tech-card hidden">
+                <h3>全國科展：物理科</h3>
+                <p>探討不同材質對聲波反射的影響，從文獻回顧、實驗設計到數據量化分析，完整體驗了科學研究的嚴謹流程。</p>
+                <div class="tags">
+                    <span class="tag">#物理實驗</span> <span class="tag">#數據分析</span>
+                </div>
+                <a href="#" class="btn-link">📄 觀看科展海報</a>
+            </div>
+        </div>
+    </section>
 
-    <script>
-        const textToType = "> SYSTEM_READY: Fetching data...";
-        const typingElement = document.getElementById("typing-text");
-        let charIndex = 0;
-
-        function typeWriter() {
-            if (charIndex < textToType.length) {
-                typingElement.innerHTML += textToType.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeWriter, 40);
-            }
-        }
-        
-        window.onload = () => {
-            setTimeout(typeWriter, 500);
-        };
-
-        const hiddenElements = document.querySelectorAll('.hidden');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
-            });
-        }, { threshold: 0.1 });
-
-        hiddenElements.forEach((el) => observer.observe(el));
-    </script>
-</body>
-</html>
+    <!-- 社團活動區塊 -->
+    <section id="clubs">
+        <h2 class="section-title">04. 社團活動 / Clubs</h2>
+        <div class="grid-container">
+            <div class="tech-card hidden">
+                <h3>資訊研究社 - 教學幹部</h3>
+                <p>擔任社團教學，負責規劃一學期的 Python 基礎課程，帶領學弟妹完成第一個爬蟲小專案，培養了上台簡報與溝通教學能力。</p>
+                <div class="tags">
+                    <span class="tag">#社團幹部</span> <span class="tag">#領導力</span> <span class="tag">#教學規劃</span>
+                </div>
+            </div>
+            <div class="tech-card hidden">
+                <h3>校慶成果發表會總召</h3>
+                <p>統籌社團成果發表會的流程規劃、場地借用與設備協調，與各幹部密切合作，成功舉辦吸引超過百人參與的活動。</p>
+                <div class="tags">
+                    <span class="tag">#活動企劃</span> <span class="tag">#團隊合作</span> <span class="tag">#溝通協調
