@@ -202,6 +202,37 @@
         @media (max-width: 768px) {
             .nav-links { display: none; }
         }
+
+        /* 關於我區塊特別樣式 */
+        .profile-container {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid var(--neon-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            background: rgba(0, 242, 255, 0.05);
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+        }
+        .profile-info h3 {
+            font-size: 1.8rem;
+            color: var(--neon-blue);
+            margin-bottom: 5px;
+        }
+        .profile-info h4 {
+            color: var(--neon-purple);
+            font-family: 'Orbitron', sans-serif;
+            letter-spacing: 1px;
+        }
     </style>
 </head>
 <body>
@@ -210,6 +241,7 @@
     <nav>
         <div class="nav-logo">H1120124_SYS</div>
         <div class="nav-links">
+            <a href="#about">自我介紹</a>
             <a href="#learning">學習內容</a>
             <a href="#projects">專題作品</a>
             <a href="#competitions">競賽經歷</a>
@@ -224,6 +256,46 @@
             <span style="font-family: 'Orbitron'; color: var(--neon-green);">> SYSTEM_ONLINE_</span>
             <h1 style="margin-top: 10px;">高中學習歷程數位總匯</h1>
             <p style="margin-top: 15px; color: var(--text-sub);">整合學習軌跡、專案研發與多元表現的數位儀表板</p>
+        </div>
+    </section>
+
+    <!-- 00. 自我介紹 (新增區塊) -->
+    <section id="about">
+        <h2 class="section-title">00. 系統存取者 / About Me</h2>
+        <div class="tech-card hidden" style="max-width: 900px; margin: 0 auto; width: 100%;">
+            
+            <div class="profile-container">
+                <div class="profile-avatar">
+                    <!-- 你之後可以把這裡的 👤 換成 <img src="你的照片.jpg"> -->
+                    👨‍💻
+                </div>
+                <div class="profile-info">
+                    <h3>[你的姓名 / 暱稱]</h3>
+                    <h4>TARGET: INFORMATION MANAGEMENT</h4>
+                </div>
+            </div>
+
+            <div style="color: var(--text-sub); line-height: 1.8;">
+                <p style="color: #fff; font-size: 1.1rem; margin-bottom: 15px; border-left: 3px solid var(--neon-purple); padding-left: 10px;">
+                    <em>「不只用程式碼寫出功能，更用系統思維解決使用者的痛點。」</em>
+                </p>
+                <p style="margin-bottom: 15px;">
+                    國中時因為課業壓力大，隨手翻開哥哥的程式書，意外開啟了我對資訊領域的興趣。其實這份熱情最早可以追溯到小時候玩樂高 EV3 的經驗：為了讓機器人精準擊倒兩個障礙物，我反覆測試、預測路徑與秒數。看著機器人在數十次失敗後終於成功達成任務的那一刻，我深深著迷於這種「透過邏輯指令，讓想法化為現實」的成就感。
+                </p>
+                <p style="margin-bottom: 15px;">
+                    進入高中後，我擔任了「資訊研究社」幹部。在團隊中，我發現自己不只是個「點子王」，更是團隊合作中的「協調者」。相比於獨自埋首於純寫程式，我更喜歡從宏觀的角度統籌專案，負責將工作分配給適合的夥伴，並將大家的程式碼與想法系統性地整合起來。
+                </p>
+                <p style="margin-bottom: 20px;">
+                    這些經歷讓我確立了目標——選擇「資訊管理系」而非純資工系。我發現比起單純的軟體開發，我更熱衷於「將問題系統性地統整與管理」。目前，我正在開發一款幫助使用者限制時間、保持專注的 Google 擴充功能，能阻擋分心網站並結合自製行事曆；未來更預計將其發展為完整生態系：包含負責統整數據與給予建議的「網頁版」，以及結合自編劇情來增加使用者沉浸體驗的「App」。我期許自己能成為串接「科技技術」與「人群需求」的橋樑。
+                </p>
+            </div>
+
+            <div class="tags">
+                <span class="tag" style="border-color: var(--neon-purple); color: var(--neon-purple);">系統統整</span>
+                <span class="tag" style="border-color: var(--neon-purple); color: var(--neon-purple);">專案協調</span>
+                <span class="tag" style="border-color: var(--neon-purple); color: var(--neon-purple);">產品企劃</span>
+                <span class="tag" style="border-color: var(--neon-purple); color: var(--neon-purple);">邏輯思考</span>
+            </div>
         </div>
     </section>
 
@@ -245,7 +317,7 @@
                 <a href="新增資料夾/science_report.pdf" target="_blank" class="btn-link">📄 進入專案觀看報告</a>
             </div>
 
-            <!-- 卡片 2：(新增)物理探究實驗 -->
+            <!-- 卡片 2：物理探究實驗 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>自然科學探究與實作：物理專題探究</h3>
@@ -254,7 +326,6 @@
                         <span class="tag">物理實驗</span> <span class="tag">數據分析</span> <span class="tag">軟體應用</span>
                     </div>
                 </div>
-                <!-- ★這裡要換成你物理報告的 PDF 檔名喔！ -->
                 <a href="新增資料夾/你的物理報告檔名.pdf" target="_blank" class="btn-link">📄 進入專案觀看報告</a>
             </div>
             
@@ -284,19 +355,19 @@
         <div class="grid-container">
             <div class="tech-card hidden">
                 <div>
-                    <h3>校園物聯網：智慧植栽監控系統</h3>
-                    <p>結合 Arduino 微控制器與土壤溫濕度感測器，撰寫 C++ 邏輯判斷，達到自動警示與數據收集功能。</p>
+                    <h3>專注力管理擴充系統 (開發中)</h3>
+                    <p>獨立開發 Google Extension，結合網頁封鎖與自製行事曆功能以提升專注力。未來預計整合網頁版數據分析與 App 劇情化體驗，打造完整時間管理生態系。</p>
                     <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">物聯網 IoT</span> <span class="tag">Arduino</span> <span class="tag">硬體實作</span>
+                        <span class="tag">Google Extension</span> <span class="tag">系統分析</span> <span class="tag">產品開發</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">專案建置與測試中...</a>
             </div>
 
             <div class="tech-card hidden">
                 <div>
                     <h3>個人數位學習歷程網站開發</h3>
-                    <p>獨立學習 HTML/CSS/JavaScript，從無到有建構具備 RWD 響應式與霓虹動態效果的個人網站。</p>
+                    <p>獨立學習 HTML/CSS/JavaScript，從無到有建構具備 RWD 響應式與霓虹動態效果的個人網站，統整高中學習軌跡。</p>
                     <div class="tags" style="margin-bottom: 20px;">
                         <span class="tag">網頁前端</span> <span class="tag">UI/UX 設計</span> <span class="tag">自我行銷</span>
                     </div>
@@ -312,10 +383,10 @@
         <div class="grid-container">
             <div class="tech-card hidden">
                 <div>
-                    <h3>全國高級中等學校小論文寫作比賽</h3>
-                    <p>以「探討人工智慧在高中教育的輔助與衝擊」為題，進行問卷調查與文獻回顧，榮獲優等肯定。</p>
+                    <h3>資訊科技相關競賽 (準備中)</h3>
+                    <p>目前正積極精進程式能力與專案開發經驗，預計將「專注力管理擴充系統」進一步完善後，參與全國性黑客松或資訊應用競賽。</p>
                     <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">邏輯論述</span> <span class="tag">文獻探討</span> <span class="tag">優等</span>
+                        <span class="tag">專案實踐</span> <span class="tag">黑客松挑戰</span> <span class="tag">目標規劃</span>
                     </div>
                 </div>
                 <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
