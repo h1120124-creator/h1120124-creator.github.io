@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高二進階 | 程式設計學習歷程</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === 霓虹科技風配色 === */
+        :root {
+            --bg-dark: #0a0c10;
+            --text-main: #e2e8f0;
+            --text-sub: #94a3b8;
+            --neon-blue: #00f2ff;
+            --neon-purple: #bc13fe;
+            --neon-green: #39ff14;
+            --card-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --nav-height: 70px;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(188, 19, 254, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(188, 19, 254, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(188, 19, 254, 0.1) 0%, transparent 60%);
+            pointer-events: none; z-index: -1;
+        }
+
+        h1, h2, h3, .nav-logo { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; height: var(--nav-height);
+            background: rgba(10, 12, 16, 0.8); border-bottom: 1px solid var(--border-glass);
+            padding: 0 5vw; display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; backdrop-filter: blur(15px);
+        }
+
+        /* 導覽列改為紫色系 */
+        .nav-logo { color: var(--neon-purple); font-size: 1.4rem; font-weight: bold; text-shadow: 0 0 10px rgba(188, 19, 254, 0.5); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--neon-purple); text-decoration: none; font-size: 0.95rem; font-weight: bold; transition: 0.3s; border: 1px solid var(--neon-purple); padding: 8px 16px; border-radius: 4px;}
+        .nav-links a:hover { background: var(--neon-purple); color: var(--bg-dark); box-shadow: 0 0 15px var(--neon-purple); }
+
+        section { padding: 120px 10vw 60px; min-height: 80vh; display: flex; flex-direction: column; justify-content: flex-start; }
+
+        .section-title { font-size: 2rem; color: var(--neon-purple); margin-bottom: 40px; padding-left: 20px; border-left: 4px solid var(--neon-purple); }
+
+        .terminal-box {
+            border: 1px solid var(--neon-purple); padding: 40px 30px; margin-bottom: 50px;
+            background: rgba(188, 19, 254, 0.02); box-shadow: 0 0 30px rgba(188, 19, 254, 0.1);
+            border-radius: 4px; width: 100%;
+        }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        .tech-card {
+            background: var(--card-glass); border: 1px solid var(--border-glass); padding: 30px;
+            border-radius: 0 20px 0 20px; transition: 0.4s; backdrop-filter: blur(10px);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+
+        .tech-card:hover { border-color: var(--neon-purple); transform: translateY(-10px); box-shadow: 0 0 20px rgba(188, 19, 254, 0.1); }
+        .tech-card h3 { color: #fff; margin-bottom: 15px; }
+        .tech-card p { margin-bottom: 20px; color: var(--text-sub); font-size: 0.95rem; }
+
+        .tag {
+            display: inline-block; padding: 4px 12px; font-size: 0.7rem;
+            background: rgba(188, 19, 254, 0.1); color: var(--neon-purple);
+            border: 1px solid var(--neon-purple); border-radius: 4px; margin-right: 8px; margin-bottom: 8px;
+        }
+
+        .btn-link {
+            display: inline-block; width: 100%; padding: 14px 24px; color: var(--neon-purple);
+            border: 1px solid var(--neon-purple); text-decoration: none; border-radius: 4px;
+            transition: 0.3s; font-weight: bold; text-align: center; background: rgba(188, 19, 254, 0.05);
+            margin-top: auto;
+        }
+        .btn-link:hover { background: var(--neon-purple); color: var(--bg-dark); box-shadow: 0 0 25px var(--neon-purple); }
+
+        .hidden { opacity: 0; transform: translateY(20px); transition: 0.8s; }
+        .show { opacity: 1; transform: translateY(0); }
+
+        footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav>
+        <div class="nav-logo">GRADE_11_DATA</div>
+        <div class="nav-links">
+            <a href="index.html">🔙 返回主控制台</a>
+        </div>
+    </nav>
+
+    <section>
+        <!-- 標題區塊 -->
+        <div class="terminal-box hidden">
+            <span style="font-family: 'Orbitron'; color: var(--neon-purple);">> ACCESSING_ARCHIVE: YEAR_2_</span>
+            <h1 style="margin-top: 10px; color: #fff;">[高二] 演算法與進階</h1>
+            <p style="margin-top: 15px; color: var(--text-sub);">從基礎語法邁向 C++，挑戰進階邏輯思維、資料結構與 APCS 程式設計檢定準備。</p>
+        </div>
+
+        <h2 class="section-title">學習單元 / Modules</h2>
+        <div class="grid-container">
+            
+            <!-- 卡片 1 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>C++ 語言轉換與進階應用</h3>
+                    <p>從 Python 轉換至 C++，學習強型別語言的特性、指標概念 (Pointers)、自訂函式與一維/二維陣列的應用，強化記憶體管理概念。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">C++</span> <span class="tag">記憶體觀念</span> <span class="tag">陣列運用</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">📄 課程學習單 (建置中)</a>
+            </div>
+            
+            <!-- 卡片 2 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>基礎資料結構與演算法</h3>
+                    <p>深入學習氣泡排序、插入排序、二分搜尋法等經典演算法。並初步了解堆疊 (Stack) 與佇列 (Queue) 等資料結構的實作原理。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">演算法</span> <span class="tag">資料結構</span> <span class="tag">排序與搜尋</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">📄 演算法筆記 (建置中)</a>
+            </div>
+
+            <!-- 卡片 3 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>APCS 程式設計檢定實戰</h3>
+                    <p>利用高中學習平台與 ZeroJudge 解題系統進行實戰演練，培養解讀題目規格、分析時間複雜度 (Time Complexity) 的實戰能力。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">APCS 檢定</span> <span class="tag">ZeroJudge</span> <span class="tag">程式解題</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">📄 刷題紀錄與心得 (建置中)</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>H1120124 // GRADE_11_RECORD // END OF FILE</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add('show');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
