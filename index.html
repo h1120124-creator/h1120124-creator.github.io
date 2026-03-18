@@ -3,18 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人學習歷程檔案 | 系統啟動中...</title>
+    <title>個人學習歷程檔案 | 極速進化版</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* === 明亮科技風樣式設定 === */
+        /* === 霓虹科技風配色 === */
         :root {
-            --bg-color: #f8fafc;
-            --text-main: #1e293b;
-            --text-sub: #64748b;
-            --cyan-glow: #0ea5e9; /* 深一點的科技藍，在亮色背景較清楚 */
-            --accent-purple: #8b5cf6;
-            --card-bg: #ffffff;
+            --bg-dark: #0a0c10;
+            --text-main: #e2e8f0;
+            --text-sub: #94a3b8;
+            --neon-blue: #00f2ff;
+            --neon-purple: #bc13fe;
+            --neon-green: #39ff14;
+            --card-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --nav-height: 70px;
         }
 
         * {
@@ -26,57 +29,73 @@
 
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
+            background-color: var(--bg-dark);
             color: var(--text-main);
             line-height: 1.6;
-            /* 淺色科技感漸層 */
-            background-image: radial-gradient(circle at 50% 50%, #f0f9ff 0%, #f8fafc 100%);
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(188, 19, 254, 0.1) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: -1;
         }
 
         h1, h2, h3, .nav-logo {
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.85);
-            border-bottom: 1px solid #e2e8f0;
-            padding: 15px 50px;
+            height: var(--nav-height);
+            background: rgba(10, 12, 16, 0.8);
+            border-bottom: 1px solid var(--border-glass);
+            padding: 0 5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
         }
 
         .nav-logo {
-            color: var(--cyan-glow);
-            font-size: 1.5rem;
+            color: var(--neon-blue);
+            font-size: 1.4rem;
             font-weight: bold;
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
 
         .nav-links a {
             color: var(--text-sub);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--cyan-glow);
+            color: var(--neon-blue);
+            text-shadow: 0 0 8px var(--neon-blue);
         }
 
         section {
-            padding: 120px 10vw 60px;
+            padding: 100px 10vw 60px;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -84,12 +103,11 @@
         }
 
         .section-title {
-            font-size: 2.2rem;
-            color: var(--text-main);
+            font-size: 2rem;
+            color: var(--neon-blue);
             margin-bottom: 40px;
-            border-left: 6px solid var(--cyan-glow);
             padding-left: 20px;
-            position: relative;
+            border-left: 4px solid var(--neon-blue);
         }
 
         #home {
@@ -98,122 +116,71 @@
         }
 
         .terminal-box {
-            border: 1px solid #e2e8f0;
-            padding: 50px;
-            background: var(--card-bg);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border-radius: 15px;
-            width: 85%;
+            border: 1px solid var(--neon-purple);
+            padding: 50px 30px;
+            background: rgba(188, 19, 254, 0.02);
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.15);
+            border-radius: 4px; 
+            width: 90%;
             max-width: 800px;
         }
-
-        #typing-text {
-            font-family: 'Orbitron', monospace;
-            font-size: 1.2rem;
-            color: var(--cyan-glow);
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .cursor {
-            display: inline-block;
-            width: 8px;
-            height: 1.2rem;
-            background-color: var(--cyan-glow);
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink { 50% { opacity: 0; } }
 
         .grid-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            gap: 30px;
         }
 
         .tech-card {
-            background: var(--card-bg);
-            border: 1px solid #e2e8f0;
+            background: var(--card-glass);
+            border: 1px solid var(--border-glass);
             padding: 30px;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border-radius: 0 20px 0 20px; 
+            transition: 0.4s;
+            backdrop-filter: blur(10px);
         }
 
         .tech-card:hover {
-            border-color: var(--cyan-glow);
-            box-shadow: 0 10px 20px rgba(14, 165, 233, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .tech-card h3 {
-            color: var(--text-main);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-
-        .tech-card p {
-            color: var(--text-sub);
-            font-size: 0.95rem;
-            flex-grow: 1;
-        }
-
-        .tags {
-            margin: 20px 0;
+            border-color: var(--neon-blue);
+            transform: translateY(-10px);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
         }
 
         .tag {
             display: inline-block;
             padding: 4px 12px;
-            font-size: 0.75rem;
-            background: #f0f9ff;
-            color: var(--cyan-glow);
-            border-radius: 20px;
-            margin-right: 6px;
-            font-weight: bold;
-            border: 1px solid #bae6fd;
+            font-size: 0.7rem;
+            background: rgba(0, 242, 255, 0.1);
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
+            border-radius: 4px;
+            margin-right: 8px;
         }
 
         .btn-link {
             display: inline-block;
-            padding: 12px 20px;
-            background: var(--cyan-glow);
-            color: #fff;
+            width: 100%;
+            padding: 14px 24px;
+            color: var(--neon-blue);
+            border: 1px solid var(--neon-blue);
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            text-align: center;
+            border-radius: 4px;
             transition: 0.3s;
             font-weight: bold;
+            text-align: center;
+            background: rgba(0, 242, 255, 0.05);
         }
 
         .btn-link:hover {
-            background: #0284c7;
-            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+            background: var(--neon-blue);
+            color: var(--bg-dark);
+            box-shadow: 0 0 25px var(--neon-blue);
         }
 
-        .hidden {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
+        .hidden { opacity: 0; transform: translateY(20px); transition: 0.8s; }
+        .show { opacity: 1; transform: translateY(0); }
 
-        .show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            background: #fff;
-            border-top: 1px solid #e2e8f0;
-            font-size: 0.85rem;
-            color: var(--text-sub);
-        }
+        footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.8rem; }
     </style>
 </head>
 <body>
@@ -221,95 +188,52 @@
     <nav>
         <div class="nav-logo">H1120124_SYS</div>
         <div class="nav-links">
-            <a href="#learning">學習內容</a>
-            <a href="#portfolio">專題作品</a>
-            <a href="#competitions">競賽經歷</a>
-            <a href="#clubs">社團活動</a>
-            <a href="#self-learning">自主學習</a>
+            <a href="#learning">數據庫</a>
+            <a href="#portfolio">核心專案</a>
         </div>
     </nav>
 
     <section id="home">
         <div class="terminal-box hidden">
-            <span id="typing-text"></span><span class="cursor"></span>
-            <h1 style="margin-top: 10px; color: var(--text-main);">高中學習歷程資料庫</h1>
-            <p style="margin-top: 15px; color: var(--text-sub); font-weight: 500;">檔案同步完成。歡迎來到我的個人數位空間。</p>
+            <span style="font-family: 'Orbitron'; color: var(--neon-green);">> SYSTEM_ONLINE_</span>
+            <h1 style="margin-top: 10px;">個人學習歷程檔案</h1>
         </div>
     </section>
 
     <section id="learning">
-        <h2 class="section-title">01. 學習內容 / Coursework</h2>
+        <h2 class="section-title">01. 課程數據集 / Coursework</h2>
         <div class="grid-container">
             <div class="tech-card hidden">
-                <h3>自然科學探究與實作：酵母菌發酵實驗</h3>
-                <p>探討發酵時間對產物的影響。實驗將蔗糖濃度控制於 6.72%、溫度 30~35 度，觀察到二氧化碳生成量與發酵時間呈正相關。</p>
-                <div class="tags">
-                    <span class="tag">#生物實驗</span> <span class="tag">#變因控制</span> <span class="tag">#數據記錄</span>
+                <h3>自然科學探究與實作：酵母菌實驗</h3>
+                <p>運用控制變因法分析數據，成功解構二氧化碳生成的動力學曲線，獲得寶貴的實作經驗。</p>
+                <div class="tags" style="margin-bottom: 20px;">
+                    <span class="tag">生物實驗</span> <span class="tag">變因控制</span> <span class="tag">數據記錄</span>
                 </div>
-                <a href="science.html" class="btn-link">📄 進入專案觀看報告</a>
+                <!-- 已根據你的 GitHub 截圖路徑修正：直接使用「新增資料夾」 -->
+                <a href="新增資料夾/science_report.pdf" target="_blank" class="btn-link">📄 進入專案觀看報告</a>
             </div>
             
             <div class="tech-card hidden">
                 <h3>多元選修：程式設計入門</h3>
-                <p>學習 Python 基礎語法，並利用爬蟲技術收集中央氣象署資料，製作簡易天氣預報 Line Bot。</p>
-                <div class="tags">
-                    <span class="tag">#Python</span> <span class="tag">#API</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="portfolio">
-        <h2 class="section-title">02. 專題作品 / Projects</h2>
-        <div class="grid-container">
-            <div class="tech-card hidden">
-                <h3>智慧盆栽監測系統</h3>
-                <p>結合 Arduino 與土壤濕度感測器，當水分不足時自動亮紅燈並發送手機通知，解決忘記澆水的問題。</p>
-                <div class="tags">
-                    <span class="tag">#Arduino</span> <span class="tag">#IoT</span>
-                </div>
-            </div>
-            <div class="tech-card hidden">
-                <h3>個人科技風網頁 (本作)</h3>
-                <p>從零開始學習 HTML, CSS 與 JavaScript，不使用套版，獨立完成具備 RWD 與動態效果的個人履歷網站。</p>
-                <div class="tags">
-                    <span class="tag">#Web Dev</span> <span class="tag">#UI/UX</span>
+                <p>學習 Python 基礎語法，製作簡易天氣預報 Line Bot 實現在地化自動通知。</p>
+                <div class="tags" style="margin-bottom: 20px;">
+                    <span class="tag">Python</span> <span class="tag">API</span>
                 </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>SYSTEM ONLINE. © 2026 Crafted by Your Name. All rights reserved.</p>
+        <p>H1120124 // TERMINAL v2.0 // EST. 2026</p>
     </footer>
 
     <script>
-        const textToType = "> SYSTEM_READY: Fetching data...";
-        const typingElement = document.getElementById("typing-text");
-        let charIndex = 0;
-
-        function typeWriter() {
-            if (charIndex < textToType.length) {
-                typingElement.innerHTML += textToType.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeWriter, 40);
-            }
-        }
-        
-        window.onload = () => {
-            setTimeout(typeWriter, 500);
-        };
-
-        const hiddenElements = document.querySelectorAll('.hidden');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('show');
             });
-        }, { threshold: 0.1 });
-
-        hiddenElements.forEach((el) => observer.observe(el));
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
