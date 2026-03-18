@@ -1,1 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高一基礎 | 程式設計學習歷程</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === 霓虹科技風配色 (與主頁完全一致) === */
+        :root {
+            --bg-dark: #0a0c10;
+            --text-main: #e2e8f0;
+            --text-sub: #94a3b8;
+            --neon-blue: #00f2ff;
+            --neon-purple: #bc13fe;
+            --neon-green: #39ff14;
+            --card-glass: rgba(255, 255, 255, 0.03);
+            --border-glass: rgba(255, 255, 255, 0.1);
+            --nav-height: 70px;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(188, 19, 254, 0.1) 0%, transparent 60%);
+            pointer-events: none; z-index: -1;
+        }
+
+        h1, h2, h3, .nav-logo { font-family: 'Orbitron', sans-serif; letter-spacing: 2px; text-transform: uppercase; }
+
+        nav {
+            position: fixed; top: 0; width: 100%; height: var(--nav-height);
+            background: rgba(10, 12, 16, 0.8); border-bottom: 1px solid var(--border-glass);
+            padding: 0 5vw; display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; backdrop-filter: blur(15px);
+        }
+
+        .nav-logo { color: var(--neon-blue); font-size: 1.4rem; font-weight: bold; text-shadow: 0 0 10px rgba(0, 242, 255, 0.5); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-links a { color: var(--neon-blue); text-decoration: none; font-size: 0.95rem; font-weight: bold; transition: 0.3s; border: 1px solid var(--neon-blue); padding: 8px 16px; border-radius: 4px;}
+        .nav-links a:hover { background: var(--neon-blue); color: var(--bg-dark); box-shadow: 0 0 15px var(--neon-blue); }
+
+        section { padding: 120px 10vw 60px; min-height: 80vh; display: flex; flex-direction: column; justify-content: flex-start; }
+
+        .section-title { font-size: 2rem; color: var(--neon-blue); margin-bottom: 40px; padding-left: 20px; border-left: 4px solid var(--neon-blue); }
+
+        .terminal-box {
+            border: 1px solid var(--neon-green); padding: 40px 30px; margin-bottom: 50px;
+            background: rgba(57, 255, 20, 0.02); box-shadow: 0 0 30px rgba(57, 255, 20, 0.1);
+            border-radius: 4px; width: 100%;
+        }
+
+        .grid-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+
+        .tech-card {
+            background: var(--card-glass); border: 1px solid var(--border-glass); padding: 30px;
+            border-radius: 0 20px 0 20px; transition: 0.4s; backdrop-filter: blur(10px);
+            display: flex; flex-direction: column; justify-content: space-between;
+        }
+
+        .tech-card:hover { border-color: var(--neon-green); transform: translateY(-10px); box-shadow: 0 0 20px rgba(57, 255, 20, 0.1); }
+        .tech-card h3 { color: #fff; margin-bottom: 15px; }
+        .tech-card p { margin-bottom: 20px; color: var(--text-sub); font-size: 0.95rem; }
+
+        .tag {
+            display: inline-block; padding: 4px 12px; font-size: 0.7rem;
+            background: rgba(57, 255, 20, 0.1); color: var(--neon-green);
+            border: 1px solid var(--neon-green); border-radius: 4px; margin-right: 8px; margin-bottom: 8px;
+        }
+
+        .btn-link {
+            display: inline-block; width: 100%; padding: 14px 24px; color: var(--neon-green);
+            border: 1px solid var(--neon-green); text-decoration: none; border-radius: 4px;
+            transition: 0.3s; font-weight: bold; text-align: center; background: rgba(57, 255, 20, 0.05);
+            margin-top: auto;
+        }
+        .btn-link:hover { background: var(--neon-green); color: var(--bg-dark); box-shadow: 0 0 25px var(--neon-green); }
+
+        .hidden { opacity: 0; transform: translateY(20px); transition: 0.8s; }
+        .show { opacity: 1; transform: translateY(0); }
+
+        footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+    <!-- 導覽列 -->
+    <nav>
+        <div class="nav-logo">GRADE_10_DATA</div>
+        <div class="nav-links">
+            <a href="index.html">🔙 返回主控制台</a>
+        </div>
+    </nav>
+
+    <section>
+        <!-- 標題區塊 -->
+        <div class="terminal-box hidden">
+            <span style="font-family: 'Orbitron'; color: var(--neon-green);">> ACCESSING_ARCHIVE: YEAR_1_</span>
+            <h1 style="margin-top: 10px; color: #fff;">[高一] 程式設計基礎</h1>
+            <p style="margin-top: 15px; color: var(--text-sub);">從零開始接觸程式語言，建立邏輯運算思維與基礎語法概念。</p>
+        </div>
+
+        <h2 class="section-title">學習單元 / Modules</h2>
+        <div class="grid-container">
+            
+            <!-- 卡片 1 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>Python 基礎語法入門</h3>
+                    <p>學習變數設定、迴圈控制 (for/while)、條件判斷 (if/else) 以及基礎資料結構 (List, Dictionary)。並完成九九乘法表與猜數字小遊戲。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">Python</span> <span class="tag">邏輯運算</span> <span class="tag">基礎語法</span>
+                    </div>
+                </div>
+                <!-- 如果有高一的 PDF，把 href 換成你的 PDF 檔名 -->
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">📄 課程學習單 (建置中)</a>
+            </div>
+            
+            <!-- 卡片 2 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>運算思維與流程圖繪製</h3>
+                    <p>在寫程式前，學習如何將複雜問題拆解，並使用 Flowchart 工具繪製演算法流程圖，提升除錯(Debug)與邏輯思考能力。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">演算法</span> <span class="tag">流程圖</span> <span class="tag">問題解決</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">📄 流程圖作業 (建置中)</a>
+            </div>
+
+            <!-- 卡片 3 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>期末微專案：簡易天氣預報器</h3>
+                    <p>結合所學，練習串接開源的氣象 API，讓使用者輸入城市名稱即可獲得當日天氣資訊，初次體驗網路爬蟲與資料擷取。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">API 串接</span> <span class="tag">JSON 解析</span> <span class="tag">專案實作</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">📄 專案報告書 (建置中)</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>H1120124 // GRADE_10_RECORD // END OF FILE</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) entry.target.classList.add('show');
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+    </script>
+</body>
+</html>
