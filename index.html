@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人學習歷程檔案 | 極速進化版</title>
+    <title>個人學習歷程檔案 | 系統啟動中</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
@@ -78,7 +78,7 @@
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 20px;
         }
 
         .nav-links a {
@@ -96,7 +96,7 @@
 
         section {
             padding: 100px 10vw 60px;
-            min-height: 100vh;
+            min-height: 80vh; 
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -113,6 +113,7 @@
         #home {
             align-items: center;
             text-align: center;
+            min-height: 100vh;
         }
 
         .terminal-box {
@@ -138,12 +139,26 @@
             border-radius: 0 20px 0 20px; 
             transition: 0.4s;
             backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .tech-card:hover {
             border-color: var(--neon-blue);
             transform: translateY(-10px);
             box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+        }
+
+        .tech-card h3 {
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .tech-card p {
+            margin-bottom: 20px;
+            color: var(--text-sub);
+            font-size: 0.95rem;
         }
 
         .tag {
@@ -155,6 +170,7 @@
             border: 1px solid var(--neon-blue);
             border-radius: 4px;
             margin-right: 8px;
+            margin-bottom: 8px;
         }
 
         .btn-link {
@@ -169,6 +185,7 @@
             font-weight: bold;
             text-align: center;
             background: rgba(0, 242, 255, 0.05);
+            margin-top: auto; 
         }
 
         .btn-link:hover {
@@ -181,50 +198,161 @@
         .show { opacity: 1; transform: translateY(0); }
 
         footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.8rem; }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
+    <!-- 導覽列 -->
     <nav>
         <div class="nav-logo">H1120124_SYS</div>
         <div class="nav-links">
-            <a href="#learning">數據庫</a>
-            <a href="#portfolio">核心專案</a>
+            <a href="#learning">學習內容</a>
+            <a href="#projects">專題作品</a>
+            <a href="#competitions">競賽經歷</a>
+            <a href="#clubs">社團活動</a>
+            <a href="#self-learning">自主學習</a>
         </div>
     </nav>
 
+    <!-- 首頁終端機視覺 -->
     <section id="home">
         <div class="terminal-box hidden">
             <span style="font-family: 'Orbitron'; color: var(--neon-green);">> SYSTEM_ONLINE_</span>
-            <h1 style="margin-top: 10px;">個人學習歷程檔案</h1>
+            <h1 style="margin-top: 10px;">高中學習歷程數位總匯</h1>
+            <p style="margin-top: 15px; color: var(--text-sub);">整合學習軌跡、專案研發與多元表現的數位儀表板</p>
         </div>
     </section>
 
+    <!-- 01. 學習內容 -->
     <section id="learning">
-        <h2 class="section-title">01. 課程數據集 / Coursework</h2>
+        <h2 class="section-title">01. 學習內容 / Coursework</h2>
         <div class="grid-container">
             <div class="tech-card hidden">
-                <h3>自然科學探究與實作：酵母菌實驗</h3>
-                <p>運用控制變因法分析數據，成功解構二氧化碳生成的動力學曲線，獲得寶貴的實作經驗。</p>
-                <div class="tags" style="margin-bottom: 20px;">
-                    <span class="tag">生物實驗</span> <span class="tag">變因控制</span> <span class="tag">數據記錄</span>
+                <div>
+                    <h3>自然科學探究與實作：酵母菌實驗</h3>
+                    <p>運用控制變因法分析數據，成功解構二氧化碳生成的動力學曲線，獲得寶貴的實作經驗。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">生物實驗</span> <span class="tag">變因控制</span> <span class="tag">數據記錄</span>
+                    </div>
                 </div>
-                <!-- 已根據你的 GitHub 截圖路徑修正：直接使用「新增資料夾」 -->
+                <!-- 你的 PDF 連結 (維持成功版本) -->
                 <a href="新增資料夾/science_report.pdf" target="_blank" class="btn-link">📄 進入專案觀看報告</a>
             </div>
             
             <div class="tech-card hidden">
-                <h3>多元選修：程式設計入門</h3>
-                <p>學習 Python 基礎語法，製作簡易天氣預報 Line Bot 實現在地化自動通知。</p>
-                <div class="tags" style="margin-bottom: 20px;">
-                    <span class="tag">Python</span> <span class="tag">API</span>
+                <div>
+                    <h3>高中程式設計</h3>
+                    <p>紀錄高中三年各階段的程式設計學習歷程，包含基礎語法、邏輯演算法與最終專題實作成果。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">Python</span> <span class="tag">C++</span> <span class="tag">專案開發</span>
+                    </div>
                 </div>
+                <!-- 三個並排的按鈕，分別連到高一、高二、高三的獨立網頁 -->
+                <div style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="grade10.html" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">[高一] 基礎</a>
+                    <a href="grade11.html" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">[高二] 進階</a>
+                    <a href="grade12.html" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">[高三] 專案</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 02. 專題作品 -->
+    <section id="projects">
+        <h2 class="section-title">02. 專題作品 / Projects</h2>
+        <div class="grid-container">
+            <div class="tech-card hidden">
+                <div>
+                    <h3>校園物聯網：智慧植栽監控系統</h3>
+                    <p>結合 Arduino 微控制器與土壤溫濕度感測器，撰寫 C++ 邏輯判斷，達到自動警示與數據收集功能。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">物聯網 IoT</span> <span class="tag">Arduino</span> <span class="tag">硬體實作</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
+            </div>
+
+            <div class="tech-card hidden">
+                <div>
+                    <h3>個人數位學習歷程網站開發</h3>
+                    <p>獨立學習 HTML/CSS/JavaScript，從無到有建構具備 RWD 響應式與霓虹動態效果的個人網站。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">網頁前端</span> <span class="tag">UI/UX 設計</span> <span class="tag">自我行銷</span>
+                    </div>
+                </div>
+                <a href="#home" class="btn-link">回到首頁瀏覽</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 03. 競賽經歷 -->
+    <section id="competitions">
+        <h2 class="section-title">03. 競賽經歷 / Competitions</h2>
+        <div class="grid-container">
+            <div class="tech-card hidden">
+                <div>
+                    <h3>全國高級中等學校小論文寫作比賽</h3>
+                    <p>以「探討人工智慧在高中教育的輔助與衝擊」為題，進行問卷調查與文獻回顧，榮獲優等肯定。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">邏輯論述</span> <span class="tag">文獻探討</span> <span class="tag">優等</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 04. 社團活動 -->
+    <section id="clubs">
+        <h2 class="section-title">04. 社團活動 / Clubs</h2>
+        <div class="grid-container">
+            <div class="tech-card hidden">
+                <div>
+                    <h3>資訊研究社 / 幹部經歷</h3>
+                    <p>擔任社團教學幹部，負責規劃 Python 基礎課程，帶領學弟妹完成基礎程式專案，並籌辦期末成果發表會。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">領導統御</span> <span class="tag">活動企劃</span> <span class="tag">知識傳遞</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 05. 自主學習 -->
+    <section id="self-learning">
+        <h2 class="section-title">05. 自主學習 / Self-Learning</h2>
+        <div class="grid-container">
+            <div class="tech-card hidden">
+                <div>
+                    <h3>CS50 基礎計算機科學線上課程</h3>
+                    <p>透過哈佛大學開放式課程，自主學習 C 語言基礎、演算法邏輯與資料結構，完成每週作業挑戰。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">線上課程</span> <span class="tag">C語言</span> <span class="tag">演算法</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
+            </div>
+            
+            <div class="tech-card hidden">
+                <div>
+                    <h3>多益 (TOEIC) 英語能力檢定準備</h3>
+                    <p>擬定 18 週自主讀書計畫，運用零碎時間背誦單字與刷題，最終取得 800 分的成績。</p>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">語文能力</span> <span class="tag">時間管理</span> <span class="tag">目標達成</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>H1120124 // TERMINAL v2.0 // EST. 2026</p>
+        <p>H1120124 // TERMINAL v2.0 // EST. 2026 // ALL DATA ENCRYPTED</p>
     </footer>
 
     <script>
