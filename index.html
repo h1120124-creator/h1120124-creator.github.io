@@ -68,7 +68,7 @@
             height: var(--nav-height);
             background: var(--nav-bg);
             border-bottom: 1px solid var(--border-light);
-            padding: 0 5vw;
+            padding: 0 4vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -79,7 +79,7 @@
 
         .nav-logo {
             color: var(--primary-blue);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
             letter-spacing: 2px;
@@ -87,14 +87,14 @@
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 15px; /* 縮小間距以容納更多選單項目 */
             align-items: center;
         }
 
         .nav-links a {
             color: var(--text-sub);
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             font-weight: 500;
             transition: 0.3s;
         }
@@ -207,7 +207,6 @@
             color: #fff;
         }
         
-        /* 針對外部連結設計的特殊按鈕樣式 */
         .btn-link-external {
             background: var(--primary-blue);
             color: #fff;
@@ -282,6 +281,15 @@
 
         footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.85rem; }
         
+        @media (max-width: 992px) {
+            .nav-links {
+                gap: 10px;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+        }
+
         @media (max-width: 768px) {
             .menu-icon {
                 display: flex;
@@ -326,7 +334,7 @@
             }
 
             .nav-links.active {
-                max-height: 400px; 
+                max-height: 500px; 
                 border-bottom: 1px solid var(--border-light);
             }
 
@@ -425,7 +433,9 @@
             <a href="#learning">學習內容</a>
             <a href="#projects">專題作品</a>
             <a href="#competitions">競賽經歷</a>
-            <a href="#clubs">幹部與活動</a>
+            <a href="#leadership">幹部經歷</a>
+            <a href="#clubs">社團經歷</a>
+            <a href="#activities">課外活動</a>
             <a href="#self-learning">自主學習</a>
             <button id="themeToggle" class="theme-toggle-btn">🌙 暗色</button>
         </div>
@@ -514,7 +524,6 @@
                         <span class="tag">熱傳導</span> <span class="tag">變因分析</span> <span class="tag">物理測試</span>
                     </div>
                 </div>
-                <!-- 這裡先維持你原本的舊路徑，等你照著 GitHub 指南弄好後，再把這裡的路徑改成新的即可！ -->
                 <a href="新增資料夾/第四組 探究與實作  水煮鵪鶉蛋實驗報告.pptx.pdf" target="_blank" class="btn-link">📄 點擊查看實驗報告</a>
             </div>
             
@@ -563,7 +572,6 @@
         <h2 class="section-title">02. 專題作品 / Projects</h2>
         <div class="grid-container">
 
-            <!-- 👇 新增：NewsGrapper 新聞抓取系統 👇 -->
             <div class="tech-card hidden" style="border-color: var(--primary-blue);">
                 <div>
                     <h3 style="color: var(--primary-blue);">NewsGrapper 新聞抓取系統</h3>
@@ -642,9 +650,9 @@
         </div>
     </section>
 
-    <!-- 04. 幹部與活動經歷 -->
-    <section id="clubs">
-        <h2 class="section-title">04. 幹部與活動經歷 / Leadership & Activities</h2>
+    <!-- 04. 幹部經歷 -->
+    <section id="leadership">
+        <h2 class="section-title">04. 幹部經歷 / Leadership Experience</h2>
         <div class="grid-container">
 
             <div class="tech-card hidden">
@@ -653,17 +661,6 @@
                     <p>擔任班長，作為班級與師長間的核心溝通橋樑。負責統籌各項事務、協調同學意見，大幅提升了我在團隊中的「專案管理思維」與「人際溝通能力」。</p>
                     <div style="margin-bottom: 20px;">
                         <span class="tag">領導統御</span> <span class="tag">溝通協調</span> <span class="tag">班級經營</span>
-                    </div>
-                </div>
-                <a href="#" class="btn-link btn-disabled">🚧 檔案建置中...</a>
-            </div>
-
-            <div class="tech-card hidden">
-                <div>
-                    <h3>資訊研究社 / 社員參與 & 程式探索</h3>
-                    <p>在社團期間曾初步接觸 Java 等程式語言，了解到不同程式語言的特性與運作邏輯，培養了我面對全新技術時的適應力與學習熱忱。</p>
-                    <div style="margin-bottom: 20px;">
-                        <span class="tag">程式探索</span> <span class="tag">多元學習</span> <span class="tag">技術適應力</span>
                     </div>
                 </div>
                 <a href="#" class="btn-link btn-disabled">🚧 檔案建置中...</a>
@@ -695,12 +692,51 @@
                 </div>
                 <a href="新增資料夾/一甲林秉洋.pdf" target="_blank" class="btn-link">📄 點擊查看服務證明書</a>
             </div>
+            
         </div>
     </section>
 
-    <!-- 05. 自主學習 -->
+    <!-- 05. 社團經歷 -->
+    <section id="clubs">
+        <h2 class="section-title">05. 社團經歷 / Club Experience</h2>
+        <div class="grid-container">
+
+            <div class="tech-card hidden">
+                <div>
+                    <h3>資訊研究社 / 社員參與 & 程式探索</h3>
+                    <p>在社團期間曾初步接觸 Java 等程式語言，了解到不同程式語言的特性與運作邏輯，培養了我面對全新技術時的適應力與學習熱忱。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">程式探索</span> <span class="tag">多元學習</span> <span class="tag">技術適應力</span>
+                    </div>
+                </div>
+                <a href="#" class="btn-link btn-disabled">🚧 檔案建置中...</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 06. 課外活動 -->
+    <section id="activities">
+        <h2 class="section-title">06. 課外活動 / Extracurricular Activities</h2>
+        <div class="grid-container">
+
+            <div class="tech-card hidden">
+                <div>
+                    <h3>馬偕醫學院：生醫教育向下扎根計畫</h3>
+                    <p>參與醫學營隊，除了解剖骨骼學之外，更實作了電腦自動驗光機與眼壓機等醫療儀器，並學習利用資料庫搜尋 CRISPR-Cas9 基因編輯配方。這讓我深刻體會到「資訊系統與數據運算」在現代精準醫療中的核心角色，啟發我對跨領域資訊應用的興趣。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">跨領域學習</span> <span class="tag">醫療科技</span> <span class="tag">基因資料庫</span>
+                    </div>
+                </div>
+                <a href="新增資料夾/人體骨骼拼圖.pdf" target="_blank" class="btn-link">📄 點擊查看活動紀錄報告</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 07. 自主學習 -->
     <section id="self-learning">
-        <h2 class="section-title">05. 自主學習 / Self-Learning</h2>
+        <h2 class="section-title">07. 自主學習 / Self-Learning</h2>
         <div class="grid-container">
             
             <div class="tech-card hidden">
