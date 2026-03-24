@@ -103,7 +103,6 @@
             color: var(--primary-blue);
         }
 
-        /* 👇 新增：電腦版隱藏漢堡按鈕 👇 */
         .menu-icon {
             display: none;
         }
@@ -268,18 +267,15 @@
 
         footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.85rem; }
         
-        /* 👇 更新：手機版的導覽列樣式 (漢堡選單邏輯) 👇 */
         @media (max-width: 768px) {
-            /* 顯示漢堡按鈕 */
             .menu-icon {
                 display: flex;
                 flex-direction: column;
                 gap: 5px;
                 cursor: pointer;
-                z-index: 1001; /* 確保在選單上方 */
+                z-index: 1001; 
             }
 
-            /* 漢堡按鈕的橫線 */
             .menu-icon span {
                 width: 25px;
                 height: 3px;
@@ -288,7 +284,6 @@
                 border-radius: 3px;
             }
 
-            /* 當按鈕被點擊 (變成 X 形狀) */
             .menu-icon.active span:nth-child(1) {
                 transform: translateY(8px) rotate(45deg);
             }
@@ -299,7 +294,6 @@
                 transform: translateY(-8px) rotate(-45deg);
             }
 
-            /* 隱藏原本的並排選單，改為下拉式 */
             .nav-links {
                 position: absolute;
                 top: var(--nav-height);
@@ -309,7 +303,6 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 0;
-                /* 以下設定用來製作平滑展開動畫 */
                 max-height: 0;
                 overflow: hidden;
                 transition: max-height 0.4s ease-in-out;
@@ -317,9 +310,8 @@
                 backdrop-filter: blur(10px);
             }
 
-            /* 當選單被展開時 */
             .nav-links.active {
-                max-height: 400px; /* 足夠容納所有連結的高度 */
+                max-height: 400px; 
                 border-bottom: 1px solid var(--border-light);
             }
 
@@ -407,7 +399,6 @@
     <nav>
         <div class="nav-logo">H1120124_SYS</div>
         
-        <!-- 👇 新增：漢堡選單按鈕 👇 -->
         <div class="menu-icon" id="menuIcon">
             <span></span>
             <span></span>
@@ -498,6 +489,18 @@
                     </div>
                 </div>
                 <a href="新增資料夾/物理與光學.pdf" target="_blank" class="btn-link">📄 點擊查看物理探究報告</a>
+            </div>
+
+            <!-- 👇 新增：地科探究實作 (水煮鵪鶉蛋) 👇 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>地科探究與實作：水煮鵪鶉蛋實驗</h3>
+                    <p>探討鵪鶉蛋不同部位（蛋白、蛋黃）的成分與導熱性質。透過「旋轉測試法」與「光照透視法」等不破壞蛋殼的物理測試，分析並驗證半熟與全熟蛋的凝固條件與熱傳導機制。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">熱傳導</span> <span class="tag">變因分析</span> <span class="tag">物理測試</span>
+                    </div>
+                </div>
+                <a href="新增資料夾/第四組 探究與實作  水煮鵪鶉蛋實驗報告.pptx.pdf" target="_blank" class="btn-link">📄 點擊查看實驗報告</a>
             </div>
             
             <div class="tech-card hidden">
@@ -722,7 +725,7 @@
             }
         });
 
-        // 👇 新增：手機版漢堡選單互動邏輯 👇
+        // 手機版漢堡選單互動邏輯
         const menuIcon = document.getElementById('menuIcon');
         const navLinks = document.getElementById('navLinks');
 
@@ -732,7 +735,7 @@
             navLinks.classList.toggle('active');
         });
 
-        // 點擊選單內的連結後，自動收起選單 (UX 友善)
+        // 點擊選單內的連結後，自動收起選單
         document.querySelectorAll('.nav-links a, .nav-links button').forEach(link => {
             link.addEventListener('click', () => {
                 menuIcon.classList.remove('active');
