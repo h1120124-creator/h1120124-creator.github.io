@@ -201,6 +201,77 @@
             color: #fff;
         }
 
+        /* 👇 新增：主要按鈕樣式 (用來突顯最優異的經歷) 👇 */
+        .btn-primary {
+            background: var(--primary-blue);
+            color: #ffffff !important;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent-color);
+            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* 👇 新增：停用/建置中按鈕樣式 (降低干擾) 👇 */
+        .btn-disabled {
+            background: #f8fafc;
+            color: #94a3b8 !important;
+            border: 1px dashed #cbd5e1;
+            cursor: not-allowed;
+            pointer-events: none; /* 防止任何點擊與 hover 效果 */
+            box-shadow: none;
+        }
+
+        /* 👇 更新：分年級專屬按鈕列表樣式 (大幅強化吸睛度) 👇 */
+        .course-btn-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px; /* 稍微增加按鈕間距 */
+            margin-top: auto;
+            border-top: 2px dashed var(--primary-blue); /* 改成醒目的藍色虛線 */
+            padding-top: 15px;
+        }
+        
+        .course-btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px; /* 加大按鈕點擊範圍 */
+            border: 2px solid var(--primary-blue); /* 加粗藍色邊框 */
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--primary-blue); /* 改成顯眼的藍字 */
+            font-weight: 700; /* 加粗字體 */
+            transition: all 0.3s ease;
+            background: var(--secondary-blue); /* 淺藍色背景，從白色中跳出來 */
+            font-size: 1rem; /* 字體微調放大 */
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.1);
+        }
+        
+        .course-btn:hover {
+            border-color: var(--accent-color);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-color));
+            color: #ffffff;
+            transform: translateX(5px) scale(1.02); /* 加上微放大與右移效果 */
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+        }
+        
+        .course-btn .arrow {
+            color: var(--primary-blue);
+            transition: 0.3s;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .course-btn:hover .arrow {
+            color: #ffffff;
+            transform: translateX(4px);
+        }
+
         .hidden { opacity: 0; transform: translateY(20px); transition: 0.8s; }
         .show { opacity: 1; transform: translateY(0); }
 
@@ -373,14 +444,26 @@
                 <div>
                     <h3>高中程式設計</h3>
                     <p>紀錄高中三年各階段的程式設計學習歷程，包含基礎語法、邏輯演算法與最終專題實作成果。</p>
-                    <div style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 15px;">
                         <span class="tag">Python</span> <span class="tag">C++</span> <span class="tag">專案開發</span>
                     </div>
                 </div>
-                <div style="display: flex; gap: 10px; margin-top: auto;">
-                    <a href="grade10.html" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">[高一] 基礎</a>
-                    <a href="grade11.html" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">[高二] 進階</a>
-                    <a href="grade12.html" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">[高三] 專案</a>
+                
+                <!-- 👇 更新：垂直列表式的導覽按鈕 (強化點擊引導) 👇 -->
+                <div class="course-btn-group">
+                    <div style="font-size: 0.9rem; color: var(--primary-blue); margin-bottom: 4px; font-weight: bold;">🎯 程式設計歷程 (強烈建議點擊瀏覽)：</div>
+                    <a href="grade10.html" class="course-btn">
+                        <span>🌱 [高一] 基礎語法與邏輯</span>
+                        <span class="arrow">➜</span>
+                    </a>
+                    <a href="grade11.html" class="course-btn">
+                        <span>🚀 [高二] C++ 進階與演算法</span>
+                        <span class="arrow">➜</span>
+                    </a>
+                    <a href="grade12.html" class="course-btn">
+                        <span>🏆 [高三] 最終專題實作</span>
+                        <span class="arrow">➜</span>
+                    </a>
                 </div>
             </div>
 
@@ -412,7 +495,8 @@
                         <span class="tag">產品企劃</span> <span class="tag">遊戲化設計</span> <span class="tag">UI/UX</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="background: #f1f5f9; color: #94a3b8; border-color: #cbd5e1; cursor: not-allowed;">🚀 企劃構思與系統建置中...</a>
+                <!-- 👇 更新：套用 btn-disabled 降低視覺干擾 👇 -->
+                <a href="#" class="btn-link btn-disabled">🚀 企劃構思與系統建置中...</a>
             </div>
 
             <div class="tech-card hidden">
@@ -433,18 +517,6 @@
         <h2 class="section-title">03. 競賽經歷 / Competitions</h2>
         <div class="grid-container">
             
-            <!-- 👇 更新：換上 PR96 的運算思維挑戰賽 👇 -->
-            <div class="tech-card hidden">
-                <div>
-                    <h3 style="color: var(--primary-blue);">🏆 國際運算思維挑戰賽 (Bebras)</h3>
-                    <p>參與 113 學年度國際運算思維挑戰賽 (Senior 組)，榮獲 225/300 高分，<strong>全國成績 PR 96</strong>。此競賽展現了我在邏輯推演、演算法思維及問題拆解上的核心能力，也是資管領域不可或缺的基礎。</p>
-                    <div style="margin-bottom: 20px;">
-                        <span class="tag">運算思維</span> <span class="tag">邏輯推演</span> <span class="tag">演算法 (PR 96)</span>
-                    </div>
-                </div>
-                <a href="11230003_林秉洋.pdf" target="_blank" class="btn-link">📄 點擊查看挑戰證明 (PR 96)</a>
-            </div>
-
             <div class="tech-card hidden">
                 <div>
                     <h3>國語文領域競賽</h3>
@@ -453,7 +525,8 @@
                         <span class="tag">文字表達</span> <span class="tag">邏輯論述</span> <span class="tag">企劃撰寫</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="background: #f1f5f9; color: #94a3b8; border-color: #cbd5e1; cursor: not-allowed;">檔案建置中...</a>
+                <!-- 套用 btn-disabled -->
+                <a href="#" class="btn-link btn-disabled">🚧 檔案建置中...</a>
             </div>
             
         </div>
@@ -472,7 +545,7 @@
                         <span class="tag">領導統御</span> <span class="tag">溝通協調</span> <span class="tag">班級經營</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="background: #f1f5f9; color: #94a3b8; border-color: #cbd5e1; cursor: not-allowed;">檔案建置中...</a>
+                <a href="#" class="btn-link btn-disabled">🚧 檔案建置中...</a>
             </div>
 
             <div class="tech-card hidden">
@@ -483,7 +556,7 @@
                         <span class="tag">程式探索</span> <span class="tag">多元學習</span> <span class="tag">技術適應力</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="background: #f1f5f9; color: #94a3b8; border-color: #cbd5e1; cursor: not-allowed;">檔案建置中...</a>
+                <a href="#" class="btn-link btn-disabled">🚧 檔案建置中...</a>
             </div>
 
             <div class="tech-card hidden">
