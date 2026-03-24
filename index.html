@@ -87,7 +87,7 @@
 
         .nav-links {
             display: flex;
-            gap: 15px; /* 縮小間距以容納更多選單項目 */
+            gap: 15px;
             align-items: center;
         }
 
@@ -666,20 +666,17 @@
                 <a href="#" class="btn-link btn-disabled">🚧 檔案建置中...</a>
             </div>
 
+            <!-- 👇 更新：移除了破圖的 img，改成純按鈕，並修正了標題與檔案路徑 👇 -->
             <div class="tech-card hidden">
                 <div>
-                    <h3>甲班自主學習成果發表會 / 總召暨表演組長</h3>
+                    <h3>甲班自主學習成果發表會 / 總召集人</h3>
                     <p>擔任全班成發總召，負責統籌活動流程與進度控管。在有限的時間壓力下協調各組意見，展現卓越的專案管理與跨組溝通協調能力。</p>
-                    
-                    <div style="margin: 15px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-light);">
-                        <img src="新增資料夾/甲林秉洋.pdf.jpg" alt="總召集人證明書" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'">
-                    </div>
-
                     <div style="margin-bottom: 20px;">
                         <span class="tag">專案管理</span> <span class="tag">跨組協調</span> <span class="tag">活動統籌</span>
                     </div>
                 </div>
-                <a href="新增資料夾/甲林秉洋.pdf.jpg" target="_blank" class="btn-link">🔍 點擊放大查看證明書</a>
+                <!-- 路徑已修正為 .pdf 結尾 -->
+                <a href="新增資料夾/甲林秉洋.pdf" target="_blank" class="btn-link">📄 點擊查看總召證明書</a>
             </div>
 
             <div class="tech-card hidden">
@@ -701,7 +698,6 @@
         <h2 class="section-title">05. 社團經歷 / Club Experience</h2>
         <div class="grid-container">
 
-            <!-- 👇 更新：遊戲創作研究社 👇 -->
             <div class="tech-card hidden" style="border-color: var(--primary-blue);">
                 <div>
                     <h3 style="color: var(--primary-blue);">遊戲創作研究社 / Unity 遊戲開發與專題報告</h3>
@@ -797,10 +793,9 @@
         }, { threshold: 0.15 });
         document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
 
-        // 深淺色模式切換邏輯 (保留 LocalStorage 記憶功能)
+        // 深淺色模式切換邏輯
         const themeToggleBtn = document.getElementById('themeToggle');
         
-        // 讀取本地儲存的主題設定
         if(localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
             themeToggleBtn.innerHTML = '☀️ 亮色';
@@ -825,13 +820,11 @@
         const menuIcon = document.getElementById('menuIcon');
         const navLinks = document.getElementById('navLinks');
 
-        // 點擊漢堡按鈕展開/收起選單
         menuIcon.addEventListener('click', () => {
             menuIcon.classList.toggle('active');
             navLinks.classList.toggle('active');
         });
 
-        // 點擊選單內的連結後，自動收起選單
         document.querySelectorAll('.nav-links a, .nav-links button').forEach(link => {
             link.addEventListener('click', () => {
                 menuIcon.classList.remove('active');
