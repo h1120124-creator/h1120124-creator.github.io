@@ -233,29 +233,6 @@
             font-family: 'Orbitron', sans-serif;
             letter-spacing: 1px;
         }
-
-        /* === 新增：紫光外框特效 === */
-        .neon-frame {
-            border: 2px solid #e9d5ff;
-            border-radius: 12px;
-            box-shadow: 0 0 15px rgba(216, 180, 254, 0.6), 
-                        inset 0 0 15px rgba(216, 180, 254, 0.6); 
-            padding: 8px;
-            background: rgba(255, 255, 255, 0.02);
-            transition: all 0.3s ease;
-        }
-
-        .neon-frame:hover {
-            box-shadow: 0 0 25px rgba(216, 180, 254, 0.9), 
-                        inset 0 0 20px rgba(216, 180, 254, 0.9);
-        }
-
-        .neon-frame img {
-            width: 100%;
-            height: auto;
-            border-radius: 6px;
-            display: block;
-        }
     </style>
 </head>
 <body>
@@ -364,12 +341,13 @@
                 </div>
             </div>
 
+            <!-- 復原被誤刪的卡片 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>多元選修：理財與模擬投資</h3>
-                    <p>研讀商業理財資料，並透過虛擬投資模型進行模擬股市交易，從中學習數據分析、風險控管與趨勢預測的基本概念。</p>
+                    <p>學習基礎經濟學概念與投資理財工具，並透過虛擬投資平台進行實作，培養數據分析與風險評估的商業思維。</p>
                     <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">數據分析</span> <span class="tag">模擬投資</span> <span class="tag">風險評估</span>
+                        <span class="tag">金融理財</span> <span class="tag">數據分析</span> <span class="tag">商業思維</span>
                     </div>
                 </div>
                 <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
@@ -382,15 +360,18 @@
     <section id="projects">
         <h2 class="section-title">02. 專題作品 / Projects</h2>
         <div class="grid-container">
+            
+            <!-- 新增/修改：Orbitic 專案卡片 -->
             <div class="tech-card hidden">
                 <div>
-                    <h3>專注力管理擴充系統 (開發中)</h3>
-                    <p>獨立開發 Google Extension，結合網頁封鎖與自製行事曆功能以提升專注力。未來預計整合網頁版數據分析與 App 劇情化體驗，打造完整時間管理生態系。</p>
+                    <h3 style="color: var(--neon-purple);">Orbitic 沉浸式計時器 (概念規劃中)</h3>
+                    <p>受 Forest 啟發，導入「遊戲代入感」與「故事劇情」的時間管理工具。為適應不同專注情境，將計時器劃分為「小時、分鐘、五分鐘、一分鐘」四種彈性模式。</p>
+                    <p style="margin-top: 10px;">玩家可透過專注紀實累積每日積分，讓自律成為推進遊戲進度的關鍵。未來規劃建立完整生態系，包含 App、Google 擴充功能與 Web 網頁版三大終端。</p>
                     <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">Google Extension</span> <span class="tag">系統分析</span> <span class="tag">產品開發</span>
+                        <span class="tag">產品企劃</span> <span class="tag">遊戲化 (Gamification)</span> <span class="tag">跨平台佈局</span> <span class="tag">UI/UX</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">專案建置與測試中...</a>
+                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">🚀 企劃構思與系統建置中...</a>
             </div>
 
             <div class="tech-card hidden">
@@ -487,16 +468,15 @@
                 <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
             </div>
 
-            <!-- 包含紫光外框的總召卡片 -->
+            <!-- 總召卡片 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>甲班自主學習成果發表會 / 總召暨表演組長</h3>
                     <p>擔任全班成發總召，負責統籌活動流程、動線規劃與進度控管。同時帶領表演組策劃開場演出，在有限的時間壓力下協調各組意見，展現專案管理與溝通協調能力。</p>
                     
-                    <!-- 這裡加上了紫光外框與你的證明書圖片 -->
-                    <div class="neon-frame" style="margin: 15px 0;">
-                        <!-- 注意這裡的路徑設定為 新增資料夾/甲林秉洋.pdf.jpg -->
-                        <img src="新增資料夾/甲林秉洋.pdf.jpg" alt="總召集人證明書" onerror="this.style.display='none'">
+                    <!-- 證明書圖片 (已移除紫光外框，改為簡約樣式) -->
+                    <div style="margin: 15px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-glass);">
+                        <img src="新增資料夾/甲林秉洋.pdf.jpg" alt="總召集人證明書" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'">
                     </div>
 
                     <div class="tags" style="margin-bottom: 20px;">
@@ -513,44 +493,36 @@
         <h2 class="section-title">05. 自主學習 / Self-Learning</h2>
         <div class="grid-container">
             
+            <!-- 原本的遊戲設計卡片 (保留不要動) -->
+            <div class="tech-card hidden">
+                <!-- ... 你的遊戲設計內容 ... -->
+            </div>
+
+            <!-- 👇👇👇 新增：多媒體與攝影作品卡片 👇👇👇 -->
             <div class="tech-card hidden">
                 <div>
-                    <h3>遊戲設計與機制研究</h3>
-                    <p>於自主學習時間投入遊戲設計領域，從企劃發想、規則制定到程式實作，探討如何透過機制設計提升玩家的沉浸感與互動體驗，展現對軟體產品開發的企劃熱忱。</p>
+                    <h3>數位影音創作與視覺美學</h3>
+                    <p>利用課餘時間自學手機攝影與動態影像剪輯，探索光影變化與視覺排版，並經營個人攝影社群。這段多媒體創作經驗不僅培養了我的美感，更訓練了我對「使用者目光引導」的敏銳度。未來我希望能將這份視覺設計能力，應用於軟體介面 (UI/UX) 與產品體驗的開發上。</p>
                     
-                    <div class="tags" style="margin-bottom: 15px;">
-                        <span class="tag">遊戲企劃</span> <span class="tag">機制設計</span> <span class="tag">使用者體驗</span>
+                    <div class="tags" style="margin-bottom: 20px;">
+                        <span class="tag">多媒體創作</span> <span class="tag">視覺美學</span> <span class="tag">UI/UX 潛力</span>
                     </div>
 
-                    <!-- 新增：將實機測試影片直接嵌入網頁，並加上紫光外框 -->
-                    <div class="neon-frame" style="margin-bottom: 20px;">
-                        <video controls style="width: 100%; border-radius: 6px; display: block; background: #000;">
-                            <source src="新增資料夾/自主學習成果發表會遊戲創作測試影片.mp4" type="video/mp4">
+                    <!-- 嵌入直式短影音 (限制最大寬度，避免電腦版比例過大) -->
+                    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
+                        <video controls style="width: 100%; max-width: 250px; border-radius: 8px; border: 1px solid var(--border-glass); background: #000;">
+                            <!-- 記得把影片檔名對應到你上傳的名稱 -->
+                            <source src="新增資料夾/@Daily_Frame_2026_3_7.mp4" type="video/mp4">
                             您的瀏覽器不支援影片播放。
                         </video>
                     </div>
                 </div>
                 
-                <!-- 修改：改成上下兩排的按鈕設計 -->
-                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <div style="display: flex; gap: 10px;">
-                        <a href="https://youtu.be/GOC0nSz7WTM" target="_blank" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">▶️ 遊戲角色控制系統出問題</a>
-                        <a href="https://youtu.be/NURZjxPoh3E" target="_blank" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">▶️ 實機遊玩展示</a>
-                    </div>
-                    <a href="#" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; opacity: 0.5; cursor: not-allowed;">📄 企劃書建置中...</a>
-                </div>
+                <!-- 底部按鈕：連結到你的 IG 作品集 -->
+                <a href="https://www.instagram.com/somewheresilent_archive" target="_blank" class="btn-link" style="margin-top: auto; display: block; text-align: center;">📷 前往 Instagram 查看更多</a>
             </div>
+            <!-- 👆👆👆 新增結束 👆👆👆 -->
             
-            <div class="tech-card hidden">
-                <div>
-                    <h3>多益 (TOEIC) 英語能力檢定準備</h3>
-                    <p>擬定 18 週自主讀書計畫，運用零碎時間背誦單字與刷題，最終取得 800 分的成績。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">語文能力</span> <span class="tag">時間管理</span> <span class="tag">目標達成</span>
-                    </div>
-                </div>
-                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
-            </div>
         </div>
     </section>
 
