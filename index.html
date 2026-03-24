@@ -18,6 +18,7 @@
             --card-bg: #ffffff;        /* 純白卡片 */
             --border-light: #e2e8f0;   /* 柔和邊框 */
             --nav-height: 70px;
+            --nav-bg: rgba(255, 255, 255, 0.9); /* 導覽列背景 */
         }
 
         /* === 深色模式配色 (Dark Mode) === */
@@ -29,6 +30,7 @@
             --secondary-blue: #1e293b; /* 深色卡片點綴 */
             --card-bg: #1e293b;        /* 深色卡片 */
             --border-light: #334155;   /* 深色邊框 */
+            --nav-bg: rgba(15, 23, 42, 0.9); /* 深色導覽列背景 */
         }
 
         * {
@@ -45,13 +47,12 @@
             line-height: 1.7;
             letter-spacing: 0.5px;
             overflow-x: hidden;
-            /* 柔和的網點背景，增加一點科技感但不干擾閱讀 */
             background-image: radial-gradient(var(--border-light) 1px, transparent 1px);
             background-size: 20px 20px;
         }
 
         h1, h2, h3, .nav-logo {
-            font-family: 'Noto Sans TC', sans-serif; /* 改回黑體，更顯成熟穩重 */
+            font-family: 'Noto Sans TC', sans-serif;
             font-weight: 700;
         }
 
@@ -65,7 +66,7 @@
             top: 0;
             width: 100%;
             height: var(--nav-height);
-            background: rgba(255, 255, 255, 0.9);
+            background: var(--nav-bg);
             border-bottom: 1px solid var(--border-light);
             padding: 0 5vw;
             display: flex;
@@ -87,6 +88,7 @@
         .nav-links {
             display: flex;
             gap: 25px;
+            align-items: center;
         }
 
         .nav-links a {
@@ -99,6 +101,11 @@
 
         .nav-links a:hover {
             color: var(--primary-blue);
+        }
+
+        /* 👇 新增：電腦版隱藏漢堡按鈕 👇 */
+        .menu-icon {
+            display: none;
         }
 
         section {
@@ -201,37 +208,21 @@
             color: #fff;
         }
 
-        /* 👇 新增：主要按鈕樣式 (用來突顯最優異的經歷) 👇 */
-        .btn-primary {
-            background: var(--primary-blue);
-            color: #ffffff !important;
-            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.25);
-            border: none;
-        }
-        
-        .btn-primary:hover {
-            background: var(--accent-color);
-            box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
-            transform: translateY(-2px);
-        }
-
-        /* 👇 新增：停用/建置中按鈕樣式 (降低干擾) 👇 */
         .btn-disabled {
             background: #f8fafc;
             color: #94a3b8 !important;
             border: 1px dashed #cbd5e1;
             cursor: not-allowed;
-            pointer-events: none; /* 防止任何點擊與 hover 效果 */
+            pointer-events: none;
             box-shadow: none;
         }
 
-        /* 👇 更新：分年級專屬按鈕列表樣式 (大幅強化吸睛度) 👇 */
         .course-btn-group {
             display: flex;
             flex-direction: column;
-            gap: 12px; /* 稍微增加按鈕間距 */
+            gap: 12px;
             margin-top: auto;
-            border-top: 2px dashed var(--primary-blue); /* 改成醒目的藍色虛線 */
+            border-top: 2px dashed var(--primary-blue);
             padding-top: 15px;
         }
         
@@ -239,15 +230,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 14px 18px; /* 加大按鈕點擊範圍 */
-            border: 2px solid var(--primary-blue); /* 加粗藍色邊框 */
+            padding: 14px 18px;
+            border: 2px solid var(--primary-blue);
             border-radius: 8px;
             text-decoration: none;
-            color: var(--primary-blue); /* 改成顯眼的藍字 */
-            font-weight: 700; /* 加粗字體 */
+            color: var(--primary-blue);
+            font-weight: 700;
             transition: all 0.3s ease;
-            background: var(--secondary-blue); /* 淺藍色背景，從白色中跳出來 */
-            font-size: 1rem; /* 字體微調放大 */
+            background: var(--secondary-blue);
+            font-size: 1rem;
             box-shadow: 0 4px 10px rgba(37, 99, 235, 0.1);
         }
         
@@ -255,7 +246,7 @@
             border-color: var(--accent-color);
             background: linear-gradient(135deg, var(--primary-blue), var(--accent-color));
             color: #ffffff;
-            transform: translateX(5px) scale(1.02); /* 加上微放大與右移效果 */
+            transform: translateX(5px) scale(1.02);
             box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
         }
         
@@ -277,11 +268,73 @@
 
         footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.85rem; }
         
+        /* 👇 更新：手機版的導覽列樣式 (漢堡選單邏輯) 👇 */
         @media (max-width: 768px) {
-            .nav-links { display: none; }
+            /* 顯示漢堡按鈕 */
+            .menu-icon {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                z-index: 1001; /* 確保在選單上方 */
+            }
+
+            /* 漢堡按鈕的橫線 */
+            .menu-icon span {
+                width: 25px;
+                height: 3px;
+                background-color: var(--primary-blue);
+                transition: 0.4s;
+                border-radius: 3px;
+            }
+
+            /* 當按鈕被點擊 (變成 X 形狀) */
+            .menu-icon.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .menu-icon.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .menu-icon.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            /* 隱藏原本的並排選單，改為下拉式 */
+            .nav-links {
+                position: absolute;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background: var(--nav-bg);
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                /* 以下設定用來製作平滑展開動畫 */
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.4s ease-in-out;
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                backdrop-filter: blur(10px);
+            }
+
+            /* 當選單被展開時 */
+            .nav-links.active {
+                max-height: 400px; /* 足夠容納所有連結的高度 */
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-links a, .nav-links button {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+                border-bottom: 1px solid var(--border-light);
+            }
+
+            .nav-links a:last-child {
+                border-bottom: none;
+            }
         }
 
-        /* 關於我區塊特別樣式 */
         .profile-container {
             display: flex;
             gap: 30px;
@@ -326,7 +379,6 @@
             margin: 0;
         }
 
-        /* 切換按鈕樣式 */
         .theme-toggle-btn {
             background: transparent;
             border: 1px solid var(--border-light);
@@ -339,6 +391,7 @@
             transition: 0.3s;
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 5px;
         }
         
@@ -353,14 +406,21 @@
     <!-- 導覽列 -->
     <nav>
         <div class="nav-logo">H1120124_SYS</div>
-        <div class="nav-links">
+        
+        <!-- 👇 新增：漢堡選單按鈕 👇 -->
+        <div class="menu-icon" id="menuIcon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="nav-links" id="navLinks">
             <a href="#about">自我介紹</a>
             <a href="#learning">學習內容</a>
             <a href="#projects">專題作品</a>
             <a href="#competitions">競賽經歷</a>
             <a href="#clubs">幹部與活動</a>
             <a href="#self-learning">自主學習</a>
-            <!-- 👇 新增：深淺色切換按鈕 👇 -->
             <button id="themeToggle" class="theme-toggle-btn">🌙 暗色</button>
         </div>
     </nav>
@@ -449,7 +509,6 @@
                     </div>
                 </div>
                 
-                <!-- 👇 更新：垂直列表式的導覽按鈕 (強化點擊引導) 👇 -->
                 <div class="course-btn-group">
                     <div style="font-size: 0.9rem; color: var(--primary-blue); margin-bottom: 4px; font-weight: bold;">🎯 程式設計歷程 (強烈建議點擊瀏覽)：</div>
                     <a href="grade10.html" class="course-btn">
@@ -495,7 +554,6 @@
                         <span class="tag">產品企劃</span> <span class="tag">遊戲化設計</span> <span class="tag">UI/UX</span>
                     </div>
                 </div>
-                <!-- 👇 更新：套用 btn-disabled 降低視覺干擾 👇 -->
                 <a href="#" class="btn-link btn-disabled">🚀 企劃構思與系統建置中...</a>
             </div>
 
@@ -525,7 +583,6 @@
                         <span class="tag">文字表達</span> <span class="tag">邏輯論述</span> <span class="tag">企劃撰寫</span>
                     </div>
                 </div>
-                <!-- 套用 btn-disabled -->
                 <a href="#" class="btn-link btn-disabled">🚧 檔案建置中...</a>
             </div>
 
@@ -650,20 +707,37 @@
         }, { threshold: 0.15 });
         document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
 
-        // 👇 新增：深淺色模式切換邏輯 👇
+        // 深淺色模式切換邏輯
         const themeToggleBtn = document.getElementById('themeToggle');
         themeToggleBtn.addEventListener('click', () => {
             const root = document.documentElement;
-            // 檢查目前是否為深色模式
             const isDark = root.getAttribute('data-theme') === 'dark';
             
             if (isDark) {
-                root.removeAttribute('data-theme'); // 切換回亮色
+                root.removeAttribute('data-theme');
                 themeToggleBtn.innerHTML = '🌙 暗色';
             } else {
-                root.setAttribute('data-theme', 'dark'); // 切換成深色
+                root.setAttribute('data-theme', 'dark');
                 themeToggleBtn.innerHTML = '☀️ 亮色';
             }
+        });
+
+        // 👇 新增：手機版漢堡選單互動邏輯 👇
+        const menuIcon = document.getElementById('menuIcon');
+        const navLinks = document.getElementById('navLinks');
+
+        // 點擊漢堡按鈕展開/收起選單
+        menuIcon.addEventListener('click', () => {
+            menuIcon.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // 點擊選單內的連結後，自動收起選單 (UX 友善)
+        document.querySelectorAll('.nav-links a, .nav-links button').forEach(link => {
+            link.addEventListener('click', () => {
+                menuIcon.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
         });
     </script>
 </body>
