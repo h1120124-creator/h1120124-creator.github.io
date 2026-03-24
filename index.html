@@ -206,6 +206,21 @@
             background: var(--primary-blue);
             color: #fff;
         }
+        
+        /* 針對外部連結設計的特殊按鈕樣式 */
+        .btn-link-external {
+            background: var(--primary-blue);
+            color: #fff;
+            border-color: var(--primary-blue);
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.2);
+        }
+        
+        .btn-link-external:hover {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(14, 165, 233, 0.3);
+        }
 
         .btn-disabled {
             background: #f8fafc;
@@ -491,7 +506,6 @@
                 <a href="新增資料夾/物理與光學.pdf" target="_blank" class="btn-link">📄 點擊查看物理探究報告</a>
             </div>
 
-            <!-- 👇 新增：地科探究實作 (水煮鵪鶉蛋) 👇 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>地科探究與實作：水煮鵪鶉蛋實驗</h3>
@@ -500,6 +514,7 @@
                         <span class="tag">熱傳導</span> <span class="tag">變因分析</span> <span class="tag">物理測試</span>
                     </div>
                 </div>
+                <!-- 這裡先維持你原本的舊路徑，等你照著 GitHub 指南弄好後，再把這裡的路徑改成新的即可！ -->
                 <a href="新增資料夾/第四組 探究與實作  水煮鵪鶉蛋實驗報告.pptx.pdf" target="_blank" class="btn-link">📄 點擊查看實驗報告</a>
             </div>
             
@@ -547,10 +562,23 @@
     <section id="projects">
         <h2 class="section-title">02. 專題作品 / Projects</h2>
         <div class="grid-container">
+
+            <!-- 👇 新增：NewsGrapper 新聞抓取系統 👇 -->
+            <div class="tech-card hidden" style="border-color: var(--primary-blue);">
+                <div>
+                    <h3 style="color: var(--primary-blue);">NewsGrapper 新聞抓取系統</h3>
+                    <p>為了更有效率地統整每日新聞資訊，我主動探索並自學了 Base44 低程式碼開發工具 (No-code / Low-code)，建置了這套自動化新聞抓取網頁。</p>
+                    <p style="margin-top: 10px;">這項專案不僅展現了我跳脫傳統寫扣框架、利用現代工具快速解決問題的「系統建置能力」，也呼應了我未來在資管領域追求效率與產品化思維的目標。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">API 串接概念</span> <span class="tag">Base44 開發</span> <span class="tag">自動化系統</span> <span class="tag">問題解決</span>
+                    </div>
+                </div>
+                <a href="https://newsgrapper.base44.app/" target="_blank" class="btn-link btn-link-external">🌐 點擊前往 NewsGrapper 網頁</a>
+            </div>
             
             <div class="tech-card hidden">
                 <div>
-                    <h3 style="color: var(--primary-blue);">Orbitic 沉浸式計時器 (概念規劃中)</h3>
+                    <h3>Orbitic 沉浸式計時器 (概念規劃中)</h3>
                     <p>受 Forest 啟發，導入「遊戲代入感」與「故事劇情」的時間管理工具。為適應不同專注情境，將計時器劃分為四種彈性模式。</p>
                     <p style="margin-top: 10px;">未來規劃建立完整生態系，包含 App、Google 擴充功能與 Web 網頁版三大終端，串接科技技術與人群需求。</p>
                     <div style="margin-bottom: 20px;">
@@ -710,17 +738,26 @@
         }, { threshold: 0.15 });
         document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
 
-        // 深淺色模式切換邏輯
+        // 深淺色模式切換邏輯 (保留 LocalStorage 記憶功能)
         const themeToggleBtn = document.getElementById('themeToggle');
+        
+        // 讀取本地儲存的主題設定
+        if(localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            themeToggleBtn.innerHTML = '☀️ 亮色';
+        }
+
         themeToggleBtn.addEventListener('click', () => {
             const root = document.documentElement;
             const isDark = root.getAttribute('data-theme') === 'dark';
             
             if (isDark) {
                 root.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
                 themeToggleBtn.innerHTML = '🌙 暗色';
             } else {
                 root.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
                 themeToggleBtn.innerHTML = '☀️ 亮色';
             }
         });
