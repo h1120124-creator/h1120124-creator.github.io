@@ -3,21 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>個人學習歷程檔案 | 系統啟動中</title>
+    <title>個人學習歷程檔案 | 林秉洋</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* === 霓虹科技風配色 === */
+        /* === 簡約專業科技風配色 (Light Mode) === */
         :root {
-            --bg-dark: #1b2230;
-            --text-main: #ffffff;
-            --text-sub: #cbd5e1;
-            --neon-blue: #00f2ff;
-            --neon-purple: #bc13fe;
-            --neon-green: #39ff14;
-            --card-glass: rgba(255, 255, 255, 0.08);
-            --border-glass: rgba(255, 255, 255, 0.25);
+            --bg-main: #f8fafc;        /* 淺灰白背景 */
+            --text-main: #1e293b;      /* 深藍灰主標題文字 (極高閱讀性) */
+            --text-sub: #475569;       /* 中灰色次要文字 */
+            --primary-blue: #2563eb;   /* 專業科技藍 */
+            --secondary-blue: #eff6ff; /* 淺藍色背景點綴 */
+            --accent-color: #0ea5e9;   /* 亮藍色強調 */
+            --card-bg: #ffffff;        /* 純白卡片 */
+            --border-light: #e2e8f0;   /* 柔和邊框 */
             --nav-height: 70px;
+        }
+
+        /* === 深色模式配色 (Dark Mode) === */
+        [data-theme="dark"] {
+            --bg-main: #0f172a;        /* 深海藍灰背景 */
+            --text-main: #f8fafc;      /* 亮白主標題文字 */
+            --text-sub: #94a3b8;       /* 淺灰次要文字 */
+            --primary-blue: #38bdf8;   /* 科技亮藍 */
+            --secondary-blue: #1e293b; /* 深色卡片點綴 */
+            --card-bg: #1e293b;        /* 深色卡片 */
+            --border-light: #334155;   /* 深色邊框 */
         }
 
         * {
@@ -29,30 +40,24 @@
 
         body {
             font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-dark);
+            background-color: var(--bg-main);
             color: var(--text-main);
             line-height: 1.7;
             letter-spacing: 0.5px;
             overflow-x: hidden;
-            background-image: 
-                linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at 50% 50%, rgba(188, 19, 254, 0.1) 0%, transparent 60%);
-            pointer-events: none;
-            z-index: -1;
+            /* 柔和的網點背景，增加一點科技感但不干擾閱讀 */
+            background-image: radial-gradient(var(--border-light) 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
         h1, h2, h3, .nav-logo {
+            font-family: 'Noto Sans TC', sans-serif; /* 改回黑體，更顯成熟穩重 */
+            font-weight: 700;
+        }
+
+        .tech-font {
             font-family: 'Orbitron', sans-serif;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         nav {
@@ -60,39 +65,40 @@
             top: 0;
             width: 100%;
             height: var(--nav-height);
-            background: rgba(10, 12, 16, 0.8);
-            border-bottom: 1px solid var(--border-glass);
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid var(--border-light);
             padding: 0 5vw;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            backdrop-filter: blur(15px);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .nav-logo {
-            color: var(--neon-blue);
+            color: var(--primary-blue);
             font-size: 1.4rem;
+            font-family: 'Orbitron', sans-serif;
             font-weight: bold;
-            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+            letter-spacing: 2px;
         }
 
         .nav-links {
             display: flex;
-            gap: 20px;
+            gap: 25px;
         }
 
         .nav-links a {
             color: var(--text-sub);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             font-weight: 500;
             transition: 0.3s;
         }
 
         .nav-links a:hover {
-            color: var(--neon-blue);
-            text-shadow: 0 0 8px var(--neon-blue);
+            color: var(--primary-blue);
         }
 
         section {
@@ -105,10 +111,10 @@
 
         .section-title {
             font-size: 2rem;
-            color: var(--neon-blue);
+            color: var(--text-main);
             margin-bottom: 40px;
-            padding-left: 20px;
-            border-left: 4px solid var(--neon-blue);
+            padding-left: 15px;
+            border-left: 5px solid var(--primary-blue);
         }
 
         #home {
@@ -118,11 +124,11 @@
         }
 
         .terminal-box {
-            border: 1px solid var(--neon-purple);
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
             padding: 50px 30px;
-            background: rgba(188, 19, 254, 0.02);
-            box-shadow: 0 0 30px rgba(188, 19, 254, 0.15);
-            border-radius: 4px; 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 12px; 
             width: 90%;
             max-width: 800px;
         }
@@ -134,26 +140,27 @@
         }
 
         .tech-card {
-            background: var(--card-glass);
-            border: 1px solid var(--border-glass);
+            background: var(--card-bg);
+            border: 1px solid var(--border-light);
             padding: 30px;
-            border-radius: 0 20px 0 20px; 
-            transition: 0.4s;
-            backdrop-filter: blur(10px);
+            border-radius: 12px; 
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         .tech-card:hover {
-            border-color: var(--neon-blue);
-            transform: translateY(-10px);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(37, 99, 235, 0.1);
         }
 
         .tech-card h3 {
-            color: #fff;
+            color: var(--text-main);
             margin-bottom: 15px;
+            font-size: 1.25rem;
         }
 
         .tech-card p {
@@ -164,12 +171,12 @@
 
         .tag {
             display: inline-block;
-            padding: 5px 12px;
+            padding: 6px 12px;
             font-size: 0.8rem;
-            background: rgba(0, 242, 255, 0.1);
-            color: var(--neon-blue);
-            border: 1px solid var(--neon-blue);
-            border-radius: 4px;
+            font-weight: 500;
+            background: var(--secondary-blue);
+            color: var(--primary-blue);
+            border-radius: 6px;
             margin-right: 8px;
             margin-bottom: 8px;
         }
@@ -177,28 +184,27 @@
         .btn-link {
             display: inline-block;
             width: 100%;
-            padding: 14px 24px;
-            color: var(--neon-blue);
-            border: 1px solid var(--neon-blue);
+            padding: 12px 24px;
+            color: var(--primary-blue);
+            border: 1px solid var(--primary-blue);
             text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             transition: 0.3s;
-            font-weight: bold;
+            font-weight: 500;
             text-align: center;
-            background: rgba(0, 242, 255, 0.05);
+            background: #fff;
             margin-top: auto; 
         }
 
         .btn-link:hover {
-            background: var(--neon-blue);
-            color: var(--bg-dark);
-            box-shadow: 0 0 25px var(--neon-blue);
+            background: var(--primary-blue);
+            color: #fff;
         }
 
         .hidden { opacity: 0; transform: translateY(20px); transition: 0.8s; }
         .show { opacity: 1; transform: translateY(0); }
 
-        footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.8rem; }
+        footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.85rem; }
         
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -209,30 +215,65 @@
             display: flex;
             gap: 30px;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             flex-wrap: wrap;
         }
         .profile-avatar {
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            border: 2px solid var(--neon-blue);
+            border: 3px solid var(--secondary-blue);
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 3rem;
-            background: rgba(0, 242, 255, 0.05);
-            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+            font-size: 3.5rem;
+            background: #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
         }
         .profile-info h3 {
-            font-size: 1.8rem;
-            color: var(--neon-blue);
+            font-size: 2rem;
+            color: var(--text-main);
             margin-bottom: 5px;
         }
         .profile-info h4 {
-            color: var(--neon-purple);
+            color: var(--primary-blue);
             font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
             letter-spacing: 1px;
+        }
+        .quote-box {
+            background: var(--secondary-blue);
+            border-left: 4px solid var(--primary-blue);
+            padding: 15px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 25px;
+        }
+        .quote-box p {
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* 切換按鈕樣式 */
+        .theme-toggle-btn {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-main);
+            padding: 5px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'Noto Sans TC', sans-serif;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .theme-toggle-btn:hover {
+            background: var(--secondary-blue);
+            border-color: var(--primary-blue);
         }
     </style>
 </head>
@@ -248,22 +289,24 @@
             <a href="#competitions">競賽經歷</a>
             <a href="#clubs">幹部與活動</a>
             <a href="#self-learning">自主學習</a>
+            <!-- 👇 新增：深淺色切換按鈕 👇 -->
+            <button id="themeToggle" class="theme-toggle-btn">🌙 暗色</button>
         </div>
     </nav>
 
     <!-- 首頁終端機視覺 -->
     <section id="home">
         <div class="terminal-box hidden">
-            <span style="font-family: 'Orbitron'; color: var(--neon-green);">> SYSTEM_ONLINE_</span>
-            <h1 style="margin-top: 10px;">高中學習歷程數位總匯</h1>
-            <p style="margin-top: 15px; color: var(--text-sub);">整合學習軌跡、專案研發與多元表現的數位儀表板</p>
+            <span class="tech-font" style="color: var(--primary-blue); font-weight: bold;">> SYSTEM_ONLINE_</span>
+            <h1 style="margin-top: 15px; font-size: 2.2rem; color: var(--text-main);">高中學習歷程數位總匯</h1>
+            <p style="margin-top: 15px; color: var(--text-sub); font-size: 1.1rem;">整合學習軌跡、專案研發與多元表現的數位儀表板</p>
         </div>
     </section>
 
     <!-- 00. 自我介紹 -->
     <section id="about">
         <h2 class="section-title">00. 系統存取者 / About Me</h2>
-        <div class="tech-card hidden" style="max-width: 900px; margin: 0 auto; width: 100%;">
+        <div class="tech-card hidden" style="max-width: 900px; margin: 0 auto; width: 100%; padding: 40px;">
             
             <div class="profile-container">
                 <div class="profile-avatar">
@@ -276,25 +319,25 @@
             </div>
 
             <div style="color: var(--text-sub); line-height: 1.8;">
-                <p style="color: #fff; font-size: 1.1rem; margin-bottom: 15px; border-left: 3px solid var(--neon-purple); padding-left: 10px;">
-                    <em>「不只用程式碼寫出功能，更用系統思維解決使用者的痛點。」</em>
-                </p>
+                <div class="quote-box">
+                    <p><em>「不只用程式碼寫出功能，更用系統思維解決使用者的痛點。」</em></p>
+                </div>
                 <p style="margin-bottom: 15px;">
                     國中時因為課業壓力大，隨手翻開哥哥的程式書，意外開啟了我對資訊領域的興趣。其實這份熱情最早可以追溯到小時候玩樂高 EV3 的經驗：為了讓機器人精準擊倒兩個障礙物，我反覆測試、預測路徑與秒數。看著機器人在數十次失敗後終於成功達成任務的那一刻，我深深著迷於這種「透過邏輯指令，讓想法化為現實」的成就感。
                 </p>
                 <p style="margin-bottom: 15px;">
                     進入高中後，我擔任了「資訊研究社」幹部。在團隊中，我發現自己不只是個「點子王」，更是團隊合作中的「協調者」。相比於獨自埋首於純寫程式，我更喜歡從宏觀的角度統籌專案，負責將工作分配給適合的夥伴，並將大家的程式碼與想法系統性地整合起來。
                 </p>
-                <p style="margin-bottom: 20px;">
+                <p style="margin-bottom: 25px;">
                     這些經歷讓我確立了目標——選擇「資訊管理系」而非純資工系。我發現比起單純的軟體開發，我更熱衷於「將問題系統性地統整與管理」。目前，我正在開發一款幫助使用者限制時間、保持專注的 Google 擴充功能，能阻擋分心網站並結合自製行事曆；未來更預計將其發展為完整生態系：包含負責統整數據與給予建議的「網頁版」，以及結合自編劇情來增加使用者沉浸體驗的「App」。我期許自己能成為串接「科技技術」與「人群需求」的橋樑。
                 </p>
             </div>
 
-            <div class="tags">
-                <span class="tag" style="border-color: var(--neon-purple); color: var(--neon-purple);">系統統整</span>
-                <span class="tag" style="border-color: var(--neon-purple); color: var(--neon-purple);">專案協調</span>
-                <span class="tag" style="border-color: var(--neon-purple); color: var(--neon-purple);">產品企劃</span>
-                <span class="tag" style="border-color: var(--neon-purple); color: var(--neon-purple);">邏輯思考</span>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <span class="tag">系統統整</span>
+                <span class="tag">專案協調</span>
+                <span class="tag">產品企劃</span>
+                <span class="tag">邏輯思考</span>
             </div>
         </div>
     </section>
@@ -308,32 +351,29 @@
                 <div>
                     <h3>自然科學探究與實作：酵母菌實驗</h3>
                     <p>運用控制變因法分析數據，成功解構二氧化碳生成的動力學曲線，獲得寶貴的實作經驗。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 20px;">
                         <span class="tag">生物實驗</span> <span class="tag">變因控制</span> <span class="tag">數據記錄</span>
                     </div>
                 </div>
-                <!-- 建議 PDF 檔名也改成英文，例如 yeast_experiment.pdf，避免 GitHub 連結失效 -->
                 <a href="新增資料夾/science_report.pdf" target="_blank" class="btn-link">📄 進入專案觀看報告</a>
             </div>
 
-            <!-- 👇 更新：物理與光學專題卡片 👇 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>自然科學探究與實作：物理光學專題</h3>
-                    <p>將抽象的光學公式轉化為真實數據驗證。透過設計包含「視差法測距」、「雙狹縫干涉測量波長」及「色光折射率分析」等一系列光學實驗，不僅實際操作與記錄數據，更針對實驗結果與理論值的差異進行深入的誤差分析，培養嚴謹的科學除錯與探究精神。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">光學實驗</span> <span class="tag">數據驗證</span> <span class="tag">誤差分析</span> <span class="tag">科學探究</span>
+                    <p>將抽象的光學公式轉化為真實數據驗證。透過設計包含「視差法測距」等光學實驗，不僅實際操作與記錄數據，更針對理論值差異進行深入的誤差分析。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">光學實驗</span> <span class="tag">數據驗證</span> <span class="tag">誤差分析</span>
                     </div>
                 </div>
-                <!-- 連結已更新為你的 PDF 檔名 -->
-                <a href="新增資料夾/物理與光學.pdf" target="_blank" class="btn-link">📄 點擊查看物理探究報告 (PDF)</a>
+                <a href="新增資料夾/物理與光學.pdf" target="_blank" class="btn-link">📄 點擊查看物理探究報告</a>
             </div>
             
             <div class="tech-card hidden">
                 <div>
                     <h3>高中程式設計</h3>
                     <p>紀錄高中三年各階段的程式設計學習歷程，包含基礎語法、邏輯演算法與最終專題實作成果。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 20px;">
                         <span class="tag">Python</span> <span class="tag">C++</span> <span class="tag">專案開發</span>
                     </div>
                 </div>
@@ -343,17 +383,16 @@
                     <a href="grade12.html" class="btn-link" style="padding: 10px 0; font-size: 0.85rem; flex: 1;">[高三] 專案</a>
                 </div>
             </div>
-            <!-- 理財與模擬投資卡片更新 -->
+
             <div class="tech-card hidden">
                 <div>
                     <h3>多元選修：理財與模擬投資</h3>
-                    <p>學習基礎經濟學概念與投資理財工具，並透過虛擬投資平台進行實作。在期末專案中，我針對「富邦越南 ETF (00885)」與「長榮航 (2618)」進行 K 線圖形與市場籌碼判讀，擬定個股投資策略，培養數據分析與風險評估的商業思維。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">金融理財</span> <span class="tag">數據分析</span> <span class="tag">商業思維</span> <span class="tag">投資策略</span>
+                    <p>針對「富邦越南 ETF (00885)」與「長榮航 (2618)」進行 K 線圖形與市場籌碼判讀，擬定個股投資策略，培養數據分析與風險評估的商業思維。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">金融理財</span> <span class="tag">數據分析</span> <span class="tag">商業思維</span>
                     </div>
                 </div>
-                <!-- 這裡的按鈕已經啟動，並連結到你的 PDF 檔案 -->
-                <a href="新增資料夾/多元選修報告.pdf" target="_blank" class="btn-link" style="opacity: 1; cursor: pointer;">📄 點擊查看期末研究報告 (PDF)</a>
+                <a href="新增資料夾/多元選修報告.pdf" target="_blank" class="btn-link">📄 點擊查看研究報告</a>
             </div>
             
         </div>
@@ -364,24 +403,23 @@
         <h2 class="section-title">02. 專題作品 / Projects</h2>
         <div class="grid-container">
             
-            <!-- 新增/修改：Orbitic 專案卡片 -->
             <div class="tech-card hidden">
                 <div>
-                    <h3 style="color: var(--neon-purple);">Orbitic 沉浸式計時器 (概念規劃中)</h3>
-                    <p>受 Forest 啟發，導入「遊戲代入感」與「故事劇情」的時間管理工具。為適應不同專注情境，將計時器劃分為「小時、分鐘、五分鐘、一分鐘」四種彈性模式。</p>
-                    <p style="margin-top: 10px;">玩家可透過專注紀實累積每日積分，讓自律成為推進遊戲進度的關鍵。未來規劃建立完整生態系，包含 App、Google 擴充功能與 Web 網頁版三大終端。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">產品企劃</span> <span class="tag">遊戲化 (Gamification)</span> <span class="tag">跨平台佈局</span> <span class="tag">UI/UX</span>
+                    <h3 style="color: var(--primary-blue);">Orbitic 沉浸式計時器 (概念規劃中)</h3>
+                    <p>受 Forest 啟發，導入「遊戲代入感」與「故事劇情」的時間管理工具。為適應不同專注情境，將計時器劃分為四種彈性模式。</p>
+                    <p style="margin-top: 10px;">未來規劃建立完整生態系，包含 App、Google 擴充功能與 Web 網頁版三大終端，串接科技技術與人群需求。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">產品企劃</span> <span class="tag">遊戲化設計</span> <span class="tag">UI/UX</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">🚀 企劃構思與系統建置中...</a>
+                <a href="#" class="btn-link" style="background: #f1f5f9; color: #94a3b8; border-color: #cbd5e1; cursor: not-allowed;">🚀 企劃構思與系統建置中...</a>
             </div>
 
             <div class="tech-card hidden">
                 <div>
                     <h3>個人數位學習歷程網站開發</h3>
-                    <p>獨立學習 HTML/CSS/JavaScript，從無到有建構具備 RWD 響應式與霓虹動態效果的個人網站，統整高中學習軌跡。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <p>獨立學習 HTML/CSS/JavaScript，從無到有建構具備 RWD 響應式與現代科技質感的個人網站，統整高中學習軌跡與多元表現。</p>
+                    <div style="margin-bottom: 20px;">
                         <span class="tag">網頁前端</span> <span class="tag">UI/UX 設計</span> <span class="tag">自我行銷</span>
                     </div>
                 </div>
@@ -395,27 +433,27 @@
         <h2 class="section-title">03. 競賽經歷 / Competitions</h2>
         <div class="grid-container">
             
-            <!-- 復原為原本的資訊競賽準備中卡片 -->
+            <!-- 👇 更新：換上 PR96 的運算思維挑戰賽 👇 -->
             <div class="tech-card hidden">
                 <div>
-                    <h3>資訊科技相關競賽</h3>
-                    <p>持續精進程式能力，預計參與下半年度之各項資訊學科能力競賽與黑客松活動，累積實戰經驗。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">演算法</span> <span class="tag">資料結構</span> <span class="tag">專案實作</span>
+                    <h3 style="color: var(--primary-blue);">🏆 國際運算思維挑戰賽 (Bebras)</h3>
+                    <p>參與 113 學年度國際運算思維挑戰賽 (Senior 組)，榮獲 225/300 高分，<strong>全國成績 PR 96</strong>。此競賽展現了我在邏輯推演、演算法思維及問題拆解上的核心能力，也是資管領域不可或缺的基礎。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">運算思維</span> <span class="tag">邏輯推演</span> <span class="tag">演算法 (PR 96)</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">賽事準備中...</a>
+                <a href="11230003_林秉洋.pdf" target="_blank" class="btn-link">📄 點擊查看挑戰證明 (PR 96)</a>
             </div>
 
             <div class="tech-card hidden">
                 <div>
                     <h3>國語文領域競賽</h3>
-                    <p>參與校內法國語文相關競賽，鍛鍊文字表達與邏輯論述能力，這對未來撰寫軟體企劃與使用者文件有極大幫助。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <p>參與校內法國語文相關競賽，鍛鍊文字表達與邏輯論述能力，這對未來撰寫軟體企劃與使用者文件 (Documentation) 有極大幫助。</p>
+                    <div style="margin-bottom: 20px;">
                         <span class="tag">文字表達</span> <span class="tag">邏輯論述</span> <span class="tag">企劃撰寫</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
+                <a href="#" class="btn-link" style="background: #f1f5f9; color: #94a3b8; border-color: #cbd5e1; cursor: not-allowed;">檔案建置中...</a>
             </div>
             
         </div>
@@ -426,58 +464,53 @@
         <h2 class="section-title">04. 幹部與活動經歷 / Leadership & Activities</h2>
         <div class="grid-container">
 
-            <!-- 原本的班長經歷 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>高二班級幹部 / 班長</h3>
-                    <p>擔任班長，作為班級與師長間的核心溝通橋樑。負責統籌班級各項事務、協調同學意見並凝聚向心力，協助校園活動順利推行。這段經歷不僅訓練了我的抗壓性，更大幅提升了我在團隊中的「專案管理思維」與「人際溝通能力」。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">領導統御</span> <span class="tag">溝通協調</span> <span class="tag">班級經營</span> <span class="tag">問題解決</span>
+                    <p>擔任班長，作為班級與師長間的核心溝通橋樑。負責統籌各項事務、協調同學意見，大幅提升了我在團隊中的「專案管理思維」與「人際溝通能力」。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">領導統御</span> <span class="tag">溝通協調</span> <span class="tag">班級經營</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
+                <a href="#" class="btn-link" style="background: #f1f5f9; color: #94a3b8; border-color: #cbd5e1; cursor: not-allowed;">檔案建置中...</a>
             </div>
 
-            <!-- 修改：資訊研究社社員經歷與 Java 探索 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>資訊研究社 / 社員參與 & 程式探索</h3>
-                    <p>參與資訊研究社，積極拓展對資訊科技領域的視野。在社團期間曾初步接觸 Java 等程式語言，這段探索經驗雖然沒有讓我成為特定語言的語法專家，卻讓我了解到不同程式語言的特性與運作邏輯，更培養了我面對全新技術時的適應力與學習熱忱。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">程式探索</span> <span class="tag">多元學習</span> <span class="tag">邏輯思維</span>
+                    <p>在社團期間曾初步接觸 Java 等程式語言，了解到不同程式語言的特性與運作邏輯，培養了我面對全新技術時的適應力與學習熱忱。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">程式探索</span> <span class="tag">多元學習</span> <span class="tag">技術適應力</span>
                     </div>
                 </div>
-                <a href="#" class="btn-link" style="opacity: 0.5; cursor: not-allowed;">檔案建置中...</a>
+                <a href="#" class="btn-link" style="background: #f1f5f9; color: #94a3b8; border-color: #cbd5e1; cursor: not-allowed;">檔案建置中...</a>
             </div>
 
-            <!-- 總召卡片 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>甲班自主學習成果發表會 / 總召暨表演組長</h3>
-                    <p>擔任全班成發總召，負責統籌活動流程、動線規劃與進度控管。同時帶領表演組策劃開場演出，在有限的時間壓力下協調各組意見，展現專案管理與溝通協調能力。</p>
+                    <p>擔任全班成發總召，負責統籌活動流程與進度控管。在有限的時間壓力下協調各組意見，展現卓越的專案管理與跨組溝通協調能力。</p>
                     
-                    <!-- 證明書圖片 (已移除紫光外框，改為簡約樣式) -->
-                    <div style="margin: 15px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-glass);">
+                    <div style="margin: 15px 0; border-radius: 6px; overflow: hidden; border: 1px solid var(--border-light);">
                         <img src="新增資料夾/甲林秉洋.pdf.jpg" alt="總召集人證明書" style="width: 100%; height: auto; display: block;" onerror="this.style.display='none'">
                     </div>
 
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 20px;">
                         <span class="tag">專案管理</span> <span class="tag">跨組協調</span> <span class="tag">活動統籌</span>
                     </div>
                 </div>
                 <a href="新增資料夾/甲林秉洋.pdf.jpg" target="_blank" class="btn-link">🔍 點擊放大查看證明書</a>
             </div>
 
-            <!-- 新增：西塞羅盃英語辯論比賽卡片 (完全沿用原格式) -->
             <div class="tech-card hidden">
                 <div>
                     <h3>臺北市西塞羅盃英語辯論比賽 / 競賽助理</h3>
-                    <p>於112學年度擔任臺北市西塞羅盃高中英語辯論比賽的競賽組服務人員。在賽事中肩負計時、舉牌與現場口譯等關鍵任務。這項工作考驗了我的英語聽力與即時翻譯能力，更訓練了我在高壓環境下精準控管流程與臨場應變的能力。</p>
-                    <div class="tags" style="margin-bottom: 20px;">
-                        <span class="tag">英語溝通</span> <span class="tag">專案協調</span> <span class="tag">時間管理</span> <span class="tag">臨場應變</span>
+                    <p>於賽事中肩負計時、舉牌與現場口譯等任務。這項工作考驗了我的英語聽力與即時翻譯能力，更訓練了我在高壓環境下精準控管流程與臨場應變的能力。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">英語溝通</span> <span class="tag">專案協調</span> <span class="tag">臨場應變</span>
                     </div>
                 </div>
-                <a href="新增資料夾/一甲林秉洋.pdf" target="_blank" class="btn-link">📄 點擊查看服務學習證明書</a>
+                <a href="新增資料夾/一甲林秉洋.pdf" target="_blank" class="btn-link">📄 點擊查看服務證明書</a>
             </div>
         </div>
     </section>
@@ -487,41 +520,31 @@
         <h2 class="section-title">05. 自主學習 / Self-Learning</h2>
         <div class="grid-container">
             
-            <!-- 原本的遊戲設計卡片 (保留不要動) -->
-            <div class="tech-card hidden">
-                <!-- ... 你的遊戲設計內容 ... -->
-            </div>
-
-            <!-- 👇👇👇 新增：多媒體與攝影作品卡片 👇👇👇 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>數位影音創作與視覺美學</h3>
-                    <p>利用課餘時間自學手機攝影與動態影像剪輯，探索光影變化與視覺排版，並經營個人攝影社群。這段多媒體創作經驗不僅培養了我的美感，更訓練了我對「使用者目光引導」的敏銳度。未來我希望能將這份視覺設計能力，應用於軟體介面 (UI/UX) 與產品體驗的開發上。</p>
+                    <p>利用課餘時間自學手機攝影與動態影像剪輯，探索光影變化與視覺排版。這段經驗不僅培養了我的美感，更訓練了我對「使用者目光引導」的敏銳度，未來希望能應用於 UI/UX 產品開發上。</p>
                     
-                    <div class="tags" style="margin-bottom: 20px;">
+                    <div style="margin-bottom: 20px;">
                         <span class="tag">多媒體創作</span> <span class="tag">視覺美學</span> <span class="tag">UI/UX 潛力</span>
                     </div>
 
-                    <!-- 嵌入直式短影音 (限制最大寬度，避免電腦版比例過大) -->
                     <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-                        <video controls style="width: 100%; max-width: 250px; border-radius: 8px; border: 1px solid var(--border-glass); background: #000;">
-                            <!-- 記得把影片檔名對應到你上傳的名稱 -->
+                        <video controls style="width: 100%; max-width: 250px; border-radius: 8px; border: 1px solid var(--border-light); background: #f1f5f9;">
                             <source src="新增資料夾/@Daily_Frame_2026_3_7.mp4" type="video/mp4">
                             您的瀏覽器不支援影片播放。
                         </video>
                     </div>
                 </div>
                 
-                <!-- 底部按鈕：連結到你的 IG 作品集 -->
-                <a href="https://www.instagram.com/somewheresilent_archive" target="_blank" class="btn-link" style="margin-top: auto; display: block; text-align: center;">📷 前往 Instagram 查看更多</a>
+                <a href="https://www.instagram.com/somewheresilent_archive" target="_blank" class="btn-link" style="margin-top: auto;">📷 前往 Instagram 查看更多</a>
             </div>
-            <!-- 👆👆👆 新增結束 👆👆👆 -->
             
         </div>
     </section>
 
     <footer>
-        <p>H1120124 // TERMINAL v2.0 // EST. 2026 // ALL DATA ENCRYPTED</p>
+        <p>H1120124 // INFORMATION MANAGEMENT PORTFOLIO // EST. 2026</p>
     </footer>
 
     <script>
@@ -531,6 +554,22 @@
             });
         }, { threshold: 0.15 });
         document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
+
+        // 👇 新增：深淺色模式切換邏輯 👇
+        const themeToggleBtn = document.getElementById('themeToggle');
+        themeToggleBtn.addEventListener('click', () => {
+            const root = document.documentElement;
+            // 檢查目前是否為深色模式
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            
+            if (isDark) {
+                root.removeAttribute('data-theme'); // 切換回亮色
+                themeToggleBtn.innerHTML = '🌙 暗色';
+            } else {
+                root.setAttribute('data-theme', 'dark'); // 切換成深色
+                themeToggleBtn.innerHTML = '☀️ 亮色';
+            }
+        });
     </script>
 </body>
 </html>
