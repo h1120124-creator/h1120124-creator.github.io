@@ -614,7 +614,6 @@
         <h2 class="section-title">03. 競賽經歷 / Competitions</h2>
         <div class="grid-container">
             
-            <!-- 👇 新增：少年文學家徵文比賽 👇 -->
             <div class="tech-card hidden" style="border-color: var(--primary-blue);">
                 <div>
                     <h3 style="color: var(--primary-blue);">第四屆海峽兩岸少年文學家 / 徵文比賽</h3>
@@ -709,7 +708,8 @@
                 </div>
                 
                 <div class="course-btn-group">
-                    <a href="新增資料夾/設團Game Design .pdf" target="_blank" class="course-btn" style="padding: 10px 15px;">
+                    <!-- 已經為你改回 Game Design .pdf -->
+                    <a href="新增資料夾/Game Design .pdf" target="_blank" class="course-btn" style="padding: 10px 15px;">
                         <span>🎮 查看 Game Design 簡報</span>
                         <span class="arrow">➜</span>
                     </a>
@@ -753,44 +753,52 @@
         </div>
     </section>
 
-    <!-- 07. 自主學習 -->
+    <!-- 07. 自主學習 (本次補上完整內容) -->
     <section id="self-learning">
         <h2 class="section-title">07. 自主學習 / Self-Learning</h2>
         <div class="grid-container">
             
-            <div class="tech-card hidden">
+            <div class="tech-card hidden" style="border-color: var(--primary-blue);">
                 <div>
-                    <h3>數位影音創作與視覺美學</h3>
-                    <p>利用課餘時間自學手機攝影與動態影像剪輯，探索光影變化與視覺排版。這段經驗不僅培養了我的美感，更訓練了我對「使用者目光引導」的敏銳度，未來希望能應用於 UI/UX 產品開發上。</p>
-                    
+                    <h3 style="color: var(--primary-blue);">高二自主學習成果發表：3D 遊戲開發</h3>
+                    <p><strong>專案名稱：Apocalyptic Rage: Dance of Fury</strong></p>
+                    <p style="margin-top: 10px;">於「薇時溯光」高二自主學習成果發表會中展出。與同學組隊規劃遊戲機制、十幾種怪物行為與隨機突發事件。開發過程中遇到 Blender 建模門檻，主動導入 ChatGPT 協作撰寫 C++ 程式碼自動生成 obj 模型，展現結合 AI 工具解決複雜問題的能力。</p>
                     <div style="margin-bottom: 20px;">
-                        <span class="tag">多媒體創作</span> <span class="tag">視覺美學</span> <span class="tag">UI/UX 潛力</span>
-                    </div>
-
-                    <div style="display: flex; justify-content: center; margin-bottom: 20px;">
-                        <video controls style="width: 100%; max-width: 250px; border-radius: 8px; border: 1px solid var(--border-light); background: #f1f5f9;">
-                            <source src="新增資料夾/@Daily_Frame_2026_3_7.mp4" type="video/mp4">
-                            您的瀏覽器不支援影片播放。
-                        </video>
+                        <span class="tag">遊戲企劃</span> <span class="tag">AI 協作開發</span> <span class="tag">問題解決</span>
                     </div>
                 </div>
                 
-                <a href="https://www.instagram.com/somewheresilent_archive" target="_blank" class="btn-link" style="margin-top: auto;">📷 前往 Instagram 查看更多</a>
+                <div class="course-btn-group">
+                    <a href="新增資料夾/薇時溯光 上半場.pdf" target="_blank" class="course-btn" style="padding: 10px 15px;">
+                        <span>📽️ 查看成果發表簡報</span>
+                        <span class="arrow">➜</span>
+                    </a>
+                    <a href="新增資料夾/報告.pdf" target="_blank" class="course-btn" style="padding: 10px 15px;">
+                        <span>💻 查看 C++ 開發企劃報告</span>
+                        <span class="arrow">➜</span>
+                    </a>
+                </div>
             </div>
-            
+
         </div>
     </section>
 
     <footer>
-        <p>H1120124 // INFORMATION MANAGEMENT PORTFOLIO // EST. 2026</p>
+        <p>© 2025 林秉洋 (Ping-Yang Lin). All Rights Reserved.</p>
+        <p style="margin-top: 10px;">Built with HTML, CSS, JavaScript</p>
     </footer>
 
+    <!-- 補回頁面互動 JavaScript -->
     <script>
+        // 滾動動畫 (Intersection Observer)
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) entry.target.classList.add('show');
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
             });
-        }, { threshold: 0.15 });
+        }, { threshold: 0.1 });
+
         document.querySelectorAll('.hidden').forEach((el) => observer.observe(el));
 
         // 深淺色模式切換邏輯
