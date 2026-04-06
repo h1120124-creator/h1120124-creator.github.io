@@ -49,6 +49,7 @@
             overflow-x: hidden;
             background-image: radial-gradient(var(--border-light) 1px, transparent 1px);
             background-size: 20px 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         h1, h2, h3, .nav-logo {
@@ -75,6 +76,7 @@
             z-index: 1000;
             backdrop-filter: blur(10px);
             box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
         .nav-logo {
@@ -83,12 +85,14 @@
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
             letter-spacing: 2px;
+            text-decoration: none;
         }
 
         .nav-links {
             display: flex;
             gap: 15px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-links a {
@@ -137,6 +141,7 @@
             border-radius: 12px; 
             width: 90%;
             max-width: 800px;
+            transition: background-color 0.3s, border-color 0.3s;
         }
 
         .grid-container {
@@ -281,13 +286,8 @@
 
         footer { text-align: center; padding: 50px; color: var(--text-sub); font-size: 0.85rem; }
         
-        @media (max-width: 992px) {
-            .nav-links {
-                gap: 10px;
-            }
-            .nav-links a {
-                font-size: 0.85rem;
-            }
+        @media (max-width: 1024px) {
+            .nav-links a { font-size: 0.85rem; }
         }
 
         @media (max-width: 768px) {
@@ -334,7 +334,7 @@
             }
 
             .nav-links.active {
-                max-height: 500px; 
+                max-height: 600px; 
                 border-bottom: 1px solid var(--border-light);
             }
 
@@ -418,9 +418,9 @@
 </head>
 <body>
 
-    <!-- 導覽列 -->
+    <!-- 導覽列 (加入未來展望) -->
     <nav>
-        <div class="nav-logo">H1120124_SYS</div>
+        <a href="#" class="nav-logo">H1120124_SYS</a>
         
         <div class="menu-icon" id="menuIcon">
             <span></span>
@@ -437,6 +437,7 @@
             <a href="#clubs">社團經歷</a>
             <a href="#activities">課外活動</a>
             <a href="#self-learning">自主學習</a>
+            <a href="#future">未來展望</a>
             <button id="themeToggle" class="theme-toggle-btn">🌙 暗色</button>
         </div>
     </nav>
@@ -476,7 +477,7 @@
                     進入高中後，我擔任了「資訊研究社」幹部。在團隊中，我發現自己不只是個「點子王」，更是團隊合作中的「協調者」。相比於獨自埋首於純寫程式，我更喜歡從宏觀的角度統籌專案，負責將工作分配給適合的夥伴，並將大家的程式碼與想法系統性地整合起來。
                 </p>
                 <p style="margin-bottom: 25px;">
-                    這些經歷讓我確立了目標——選擇「資訊管理系」而非純資工系。我發現比起單純的軟體開發，我更熱衷於「將問題系統性地統整與管理」。目前，我正在開發一款幫助使用者限制時間、保持專注的 Google 擴充功能，能阻擋分心網站並結合自製行事曆；未來更預計將其發展為完整生態系：包含負責統整數據與給予建議的「網頁版」，以及結合自編劇情來增加使用者沉浸體驗的「App」。我期許自己能成為串接「科技技術」與「人群需求」的橋樑。
+                    這些經歷讓我確立了目標——選擇「資訊管理系」而非純資工系。我發現比起單純的軟體開發，我更熱衷於「將問題系統性地統整與管理」。目前，我正在開發一款幫助使用者限制時間、保持專注的 Google 擴充功能，能阻擋分心網站並結合自製行事曆；未來更預計將其發展為完整生態系：包含負責統整數據與給予建議的「網頁版」，以及結合自編劇情來增加使用者沉浸體驗的「App」。我期許自己能成為串接「科技技術」與人群需求」的橋樑。
                 </p>
             </div>
 
@@ -489,11 +490,59 @@
         </div>
     </section>
 
-    <!-- 01. 學習內容 -->
+    <!-- 01. 學習內容 (補入 Tinkercad、Arduino、AI新媒體藝術) -->
     <section id="learning">
         <h2 class="section-title">01. 學習內容 / Coursework</h2>
         <div class="grid-container">
+
+            <!-- 📌 新增：生活科技 3D 建模 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>生活科技：3D 建模實作</h3>
+                    <p>透過 Tinkercad 進行三階段挑戰，鍛鍊空間邏輯與布林運算思維：</p>
+                    <ul style="margin-left: 20px; color: var(--text-sub); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.6;">
+                        <li><strong>自我名牌：</strong>學習空心圓柱挖洞與群組功能，避免物件位移。</li>
+                        <li><strong>書櫃與咖啡杯：</strong>利用多物件合併形成光滑曲面，熟練置中與曲面裁剪。</li>
+                        <li><strong>凹洞骰子：</strong>熟練複製貼上與固定深度挖掘，理解「圓柱大小不限」的布林運算核心。</li>
+                    </ul>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">Tinkercad</span> <span class="tag">3D 建模</span> <span class="tag">空間邏輯</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📌 新增：硬體實作 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>生活科技：硬體與電路初探</h3>
+                    <p>從線上模擬到實體組裝，建立軟硬體整合的基礎概念：</p>
+                    <ul style="margin-left: 20px; color: var(--text-sub); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.6;">
+                        <li><strong>線上電路：</strong>使用 Tinkercad 進行基本電路設計與模擬。</li>
+                        <li><strong>實機組裝：</strong>親手完成 Arduino 馬達組裝與接線實作。</li>
+                    </ul>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">Arduino</span> <span class="tag">電路設計</span> <span class="tag">硬體實作</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 📌 新增：AI 與機器人專題 -->
+            <div class="tech-card hidden">
+                <div>
+                    <h3>資訊進階：新媒體藝術與機器人</h3>
+                    <p>探索前衛科技在創作與控制上的應用：</p>
+                    <ul style="margin-left: 20px; color: var(--text-sub); font-size: 0.9rem; margin-bottom: 15px; line-height: 1.6;">
+                        <li><strong>AI 音樂生成：</strong>運用 AI 工具創作新媒體藝術音樂。</li>
+                        <li><strong>AI 模型分配：</strong>學習分析並整合不同 AI (LLM) 的強項進行應用。</li>
+                        <li><strong>機器人專題：</strong>進階資訊課程中的機器人控制與開發。</li>
+                    </ul>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">AI 應用</span> <span class="tag">新媒體藝術</span> <span class="tag">機器人專題</span>
+                    </div>
+                </div>
+            </div>
             
+            <!-- 原有內容 -->
             <div class="tech-card hidden">
                 <div>
                     <h3>自然科學探究與實作：酵母菌實驗</h3>
@@ -567,14 +616,26 @@
         </div>
     </section>
 
-    <!-- 02. 專題作品 -->
+    <!-- 02. 專題作品 (補入 IEYI 野餐拼盤) -->
     <section id="projects">
         <h2 class="section-title">02. 專題作品 / Projects</h2>
         <div class="grid-container">
 
+            <!-- 📌 新增：IEYI 野餐拼盤 -->
             <div class="tech-card hidden" style="border-color: var(--primary-blue);">
                 <div>
-                    <h3 style="color: var(--primary-blue);">NewsGrapper 新聞抓取系統</h3>
+                    <h3 style="color: var(--primary-blue);">IEYI 專題報告：野餐拼盤</h3>
+                    <p>這是我首次製作並參與的大型專案報告。從企劃發想到實體呈現，最寶貴的經驗是站上舞台，在 <strong>300 人面前</strong>進行正式的臺上報告。</p>
+                    <p style="margin-top: 10px;">這次經驗極大程度地鍛鍊了我的台風、抗壓性與公眾表達能力，為日後的專案發表打下堅實基礎。</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="tag">IEYI 專案</span> <span class="tag">公眾表達</span> <span class="tag">簡報技巧</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tech-card hidden">
+                <div>
+                    <h3>NewsGrapper 新聞抓取系統</h3>
                     <p>為了更有效率地統整每日新聞資訊，我主動探索並自學了 Base44 低程式碼開發工具 (No-code / Low-code)，建置了這套自動化新聞抓取網頁。</p>
                     <p style="margin-top: 10px;">這項專案不僅展現了我跳脫傳統寫扣框架、利用現代工具快速解決問題的「系統建置能力」，也呼應了我未來在資管領域追求效率與產品化思維的目標。</p>
                     <div style="margin-bottom: 20px;">
@@ -692,23 +753,22 @@
         </div>
     </section>
 
-    <!-- 05. 社團經歷 -->
+    <!-- 05. 社團經歷 (補入 社長 描述) -->
     <section id="clubs">
         <h2 class="section-title">05. 社團經歷 / Club Experience</h2>
         <div class="grid-container">
 
             <div class="tech-card hidden" style="border-color: var(--primary-blue);">
                 <div>
-                    <h3 style="color: var(--primary-blue);">遊戲創作研究社 / Unity 遊戲開發與專題報告</h3>
-                    <p>為了解決「免費線上遊戲常有 Bug 與畫質不佳」的痛點，我在社團中挑戰從零開始使用 Unity 引擎與 C# 語言獨立開發一款小型遊戲，並於期末進行 Game Design 專題簡報。</p>
+                    <h3 style="color: var(--primary-blue);">遊戲創作研究社 / 擔任社長與專題開發</h3>
+                    <p>擔任<strong>遊戲創作研究社社長</strong>。為了解決「免費線上遊戲常有 Bug 與畫質不佳」的痛點，我在社團中挑戰從零開始使用 Unity 引擎與 C# 語言獨立開發一款小型遊戲，並於期末進行 Game Design 專題簡報。</p>
                     <p style="margin-top: 10px;">這段經歷讓我體會到，做系統開發最寶貴的不是死背語法，而是**「遇到問題時能主動上網查閱資料、尋找解方」**的除錯能力。看著角色成功在畫面上順暢移動，讓我深刻體驗到將邏輯化為現實的成就感，也更加確立了我未來往資訊管理與系統開發發展的熱情！</p>
                     <div style="margin-bottom: 20px;">
-                        <span class="tag">Unity 引擎</span> <span class="tag">C# 程式設計</span> <span class="tag">自主除錯</span> <span class="tag">專題簡報</span>
+                        <span class="tag">社團社長</span> <span class="tag">Unity 引擎</span> <span class="tag">C# 程式設計</span> <span class="tag">自主除錯</span>
                     </div>
                 </div>
                 
                 <div class="course-btn-group">
-                    <!-- 已經為你改回 Game Design .pdf -->
                     <a href="新增資料夾/Game Design .pdf" target="_blank" class="course-btn" style="padding: 10px 15px;">
                         <span>🎮 查看 Game Design 簡報</span>
                         <span class="arrow">➜</span>
@@ -753,7 +813,7 @@
         </div>
     </section>
 
-    <!-- 07. 自主學習 (本次補上完整內容) -->
+    <!-- 07. 自主學習 -->
     <section id="self-learning">
         <h2 class="section-title">07. 自主學習 / Self-Learning</h2>
         <div class="grid-container">
@@ -783,12 +843,44 @@
         </div>
     </section>
 
+    <!-- 📌 新增：08. 未來展望 -->
+    <section id="future">
+        <h2 class="section-title">08. 近期發展與未來展望 / Future Outlook</h2>
+        <div class="grid-container">
+            <div class="tech-card hidden" style="border-color: var(--accent-color);">
+                <div>
+                    <h3 style="color: var(--accent-color);">近期發展重點</h3>
+                    <ul style="margin-left: 20px; color: var(--text-sub); line-height: 1.8; margin-bottom: 20px;">
+                        <li><strong>流程自動化：</strong>研究 <code style="background: var(--border-light); padding: 2px 6px; border-radius: 4px;">make.com</code>，嘗試串接服務提升效率。</li>
+                        <li><strong>App 開發實作：</strong>設法自行開發「讀書自律 App」（目前研發中）。</li>
+                        <li><strong>個人品牌建置：</strong>自製自我學習歷程介紹網站（即本網站）。</li>
+                        <li><strong>AI 整合應用：</strong>學習辨識不同 AI 的強項，並分配運用於日常開發中。</li>
+                        <li><strong>數據處理：</strong>學習 Excel 等數據分析工具。</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="tech-card hidden" style="border-color: var(--primary-blue);">
+                <div>
+                    <h3 style="color: var(--primary-blue);">長期未來展望</h3>
+                    <ul style="margin-left: 20px; color: var(--text-sub); line-height: 1.8; margin-bottom: 20px;">
+                        <li><strong>專案管理 (Project Management)：</strong>學習在大型專案中統籌資源、管理進度與團隊協作。</li>
+                        <li><strong>落實自動化流程執行：</strong>將自動化思維從概念延伸到實務，應用於軟體開發與日常流程中。</li>
+                    </ul>
+                    <div style="margin-top: 20px;">
+                        <span class="tag">專案管理</span> <span class="tag">流程自動化</span> <span class="tag">資訊管理</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p>© 2025 林秉洋 (Ping-Yang Lin). All Rights Reserved.</p>
         <p style="margin-top: 10px;">Built with HTML, CSS, JavaScript</p>
     </footer>
 
-    <!-- 補回頁面互動 JavaScript -->
+    <!-- 頁面互動 JavaScript -->
     <script>
         // 滾動動畫 (Intersection Observer)
         const observer = new IntersectionObserver((entries) => {
